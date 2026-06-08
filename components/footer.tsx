@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
+import Phone from "./icons/phone";
+import Email from "./icons/email";
+import Location from "./icons/location";
 
 const quickLinks = [
   "Home",
@@ -50,7 +54,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/images/logo-white.svg"
+              src="/images/logo.png"
               alt="Rivexa"
               width={180}
               height={60}
@@ -116,19 +120,19 @@ export default function Footer() {
         {/* Contact Row */}
         <div className="grid gap-6 md:grid-cols-3">
           <ContactCard
-            icon="✉"
+            icon=<Email />
             label="Email Us"
             value="support@rivexa.com"
           />
 
           <ContactCard
-            icon="📞"
+            icon=<Phone />
             label="Call Us"
             value="+91 123 456 7890"
           />
 
           <ContactCard
-            icon="📍"
+            icon=<Location />
             label="Location"
             value="Kolkata, India"
           />
@@ -174,7 +178,7 @@ function FooterColumn({
       <div className="mb-8 flex items-center gap-3">
         <div className={`h-8 w-1 rounded-full ${color}`} />
 
-        <h3 className="font-heading text-2xl font-semibold">
+        <h3 className="font-heading text-xl font-semibold">
           {title}
         </h3>
       </div>
@@ -200,7 +204,7 @@ function ContactCard({
   label,
   value,
 }: {
-  icon: string;
+  icon: ReactNode;
   label: string;
   value: string;
 }) {
