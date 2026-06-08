@@ -74,44 +74,57 @@ const rivexa = [
 
 export default function WhyRivexa() {
     const sectionRef = useRef<HTMLElement>(null);
-const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
-useEffect(() => {
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                setIsVisible(true);
-                observer.disconnect();
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                threshold: 0.15,
             }
-        },
-        {
-            threshold: 0.15,
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
         }
-    );
 
-    if (sectionRef.current) {
-        observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-}, []);
+        return () => observer.disconnect();
+    }, []);
     return (
         <section ref={sectionRef} className="bg-white py-14">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Heading */}
-                <h2 className="font-heading text-center text-4xl font-bold text-[#331C6F]">
+                <h2
+                    className={`font-heading text-center text-4xl font-bold text-[#331C6F]
+    transition-all duration-1000 ease-out
+    ${isVisible
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-12 opacity-0"
+                        }`}
+                >
                     Traditional Vendor Search vs Sourcing with rivexa
                 </h2>
 
                 {/* Comparison */}
                 <div className="mt-12 grid gap-8 lg:grid-cols-2">
                     {/* Traditional */}
-                    <div>
+                    <div
+                        className={`transition-all duration-1000 ease-out
+    ${isVisible
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-16 opacity-0"
+                            }`}
+                    >
                         <div className="rounded-2xl bg-[#F4F4F5] px-6 py-5">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E5E5E5]">
                                     <div className="h-5 w-5">
-                                        <Quality height={20} width={20}/>
+                                        <Quality height={20} width={20} />
                                     </div>
                                 </div>
 
@@ -122,10 +135,18 @@ useEffect(() => {
                         </div>
 
                         <div className="mt-4 space-y-3">
-                            {traditional.map((item) => (
+                            {traditional.map((item, index) => (
                                 <div
                                     key={item.title}
-                                    className="rounded-2xl border border-[#E8E8E8] bg-white p-5 transition-all duration-300 hover:shadow-md"
+                                    className={`rounded-2xl border border-[#E8E8E8] bg-white p-5
+    transition-all duration-100 hover:shadow-md hover:border-2
+    ${isVisible
+                                            ? "translate-y-0 opacity-100"
+                                            : "translate-y-20 opacity-0"
+                                        }`}
+                                    style={{
+                                        transitionDelay: `${300 + index * 60}ms`,
+                                    }}
                                 >
                                     <div className="flex gap-3">
                                         <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#E5E5E5] text-xs text-[#888]">
@@ -148,7 +169,13 @@ useEffect(() => {
                     </div>
 
                     {/* Rivexa */}
-                    <div>
+                    <div
+                        className={`transition-all duration-1000 delay-200 ease-out
+    ${isVisible
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-16 opacity-0"
+                            }`}
+                    >
                         <div className="rounded-2xl bg-[#330086] px-6 py-5">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white">
@@ -162,20 +189,19 @@ useEffect(() => {
                         </div>
 
                         <div className="mt-4 space-y-3">
-                            {rivexa.map((item) => (
+                            {rivexa.map((item, index) => (
                                 <div
                                     key={item.title}
-                                    className="
-                    rounded-2xl
-                    border
-                    border-[#E7DDFB]
-                    bg-[#FAF8FF]
-                    p-5
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    hover:shadow-lg
-                  "
+                                    className={`rounded-2xl border border-[#E7DDFB] bg-[#FAF8FF] p-5
+    transition-all duration-100
+    hover:-translate-y-1 hover:shadow-lg
+    ${isVisible
+                                            ? "translate-y-0 opacity-100"
+                                            : "translate-y-20 opacity-0"
+                                        }`}
+                                    style={{
+                                        transitionDelay: `${300 + index * 60}ms`,
+                                    }}
                                 >
                                     <div className="flex gap-3">
                                         <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#5C3DBB] text-xs text-white">
@@ -199,7 +225,14 @@ useEffect(() => {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-10 rounded-3xl bg-[#F1EBFC] p-6">
+                <div
+                    className={`mt-10 rounded-3xl bg-[#F1EBFC] p-6
+    transition-all duration-1000 delay-500
+    ${isVisible
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-12 opacity-0"
+                        }`}
+                >
                     <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                         <div>
                             <h3 className="font-heading text-2xl text-[#330086]">
