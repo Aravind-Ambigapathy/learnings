@@ -90,10 +90,7 @@ export default function CoreCastingProcesses() {
             </div>
 
             <div className="pt-4">
-              <h4 className="font-semibold text-[#331C6F]">
-                What is {process.name}?
-              </h4>
-
+         
               <div className="pt-4">
                 <h4 className="font-semibold text-[#331C6F]">
                   What is {process.name}?
@@ -116,9 +113,6 @@ export default function CoreCastingProcesses() {
                 )}
               </div>
 
-              {/* <button className="mt-3 text-sm font-medium text-[#331C6F] hover:underline">
-                Learn more
-              </button> */}
             </div>
           </div>
 
