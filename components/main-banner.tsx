@@ -49,7 +49,7 @@ export default function HeroSection() {
                 <div className="relative z-10 mx-auto px-6 lg:px-12 pt-16 lg:pt-20 bg-black/5">
                     <div className=" w-full lg:max-w-4xl">
                         <h1 className="font-heading text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                            Rivexa Casting Solutions –
+                            rivexa Casting Solutions –
                             <br />
                             Your Global Sourcing
                             <br />

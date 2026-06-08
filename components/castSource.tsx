@@ -57,7 +57,7 @@ export default function CastSourcePromise() {
                     {promises.map((item) => (
                         <div
                             key={item.title}
-                            className="flex items-center gap-4 rounded-xl border border-[#D8D0E5]  px-5 py-4 hover:-translate-y-1 hover:shadow-lg"
+                            className="flex items-center gap-4 rounded-xl border bg-white border-[#D8D0E5]  px-5 py-4 hover:-translate-y-1 hover:shadow-lg"
                         >
                             <div
                                 className={` h-10 w-10 rounded-lg `}

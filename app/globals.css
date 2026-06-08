@@ -2,22 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-body: var(--font-body);
-  --font-heading: var(--font-heading);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #ededed;
-  }
+  --font-body: var(--font-urbanist);
+  --font-heading: var(--font-chillax);
 }
 
 body {
