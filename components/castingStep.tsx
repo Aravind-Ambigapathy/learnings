@@ -105,7 +105,7 @@ export default function CastingProcess() {
                         <button
                             key={step.title}
                             onClick={() => setActiveStep(index + 1)}
-                            className={`rounded-full border px-5 flex py-2 text-sm transition-all
+                            className={`rounded-full border px-5 flex cursor-pointer py-2 text-sm transition-all
               ${activeStep === index + 1
                                     ? "border-transparent border-2 bg-[#D8C6FF] text-[#331C6F]"
                                     : "border-white/25 text-white hover:border-white"
