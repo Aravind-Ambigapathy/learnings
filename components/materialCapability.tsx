@@ -93,7 +93,7 @@ const materials = [
 export default function MaterialCapabilities() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [activeCard, setActiveCard] = useState<number | null>(0);
+    const [activeCard, setActiveCard] = useState<number | null>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -133,7 +133,7 @@ export default function MaterialCapabilities() {
                                 setActiveCard(activeCard === index ? null : index)
                             }
                             className={`
-    group
+    group cursor-pointer
     rounded-3xl border border-[#E5E0F0] bg-white p-6
     transition-all duration-500 ease-out h-max
     hover:-translate-y-1 hover:shadow-xl
