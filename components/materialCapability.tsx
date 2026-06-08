@@ -129,6 +129,9 @@ export default function MaterialCapabilities() {
                     {materials.map((item, index) => (
                         <div
                             key={item.name}
+                            onClick={() =>
+                                setActiveCard(activeCard === index ? null : index)
+                            }
                             className={`
     group
     rounded-3xl border border-[#E5E0F0] bg-white p-6
@@ -173,7 +176,8 @@ export default function MaterialCapabilities() {
                                 </div>
 
                                 <div
-                                    className="flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-300 group-hover:rotate-180"
+                                    className={`flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-300 ${activeCard === index ? "rotate-180" : ""
+                                        }`}
                                     style={{
                                         backgroundColor: `${item.color}15`,
                                         color: item.color,
@@ -196,16 +200,16 @@ export default function MaterialCapabilities() {
                                 </div>
                             </div>
                             <div
-                                className="
+                                className={`
     overflow-hidden
-    max-h-0
-    opacity-0
     transition-all
     duration-500
     ease-in-out
-    group-hover:max-h-[800px]
-    group-hover:opacity-100
-  "
+    ${activeCard === index
+                                        ? "max-h-[1000px] opacity-100"
+                                        : "max-h-0 opacity-0"
+                                    }
+  `}
                             >
                                 <div className="my-3 h-px bg-[#E7E2EF]" />
 
