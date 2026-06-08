@@ -79,6 +79,7 @@ export default function HeroSection() {
                                 >
                                     <div className="font-heading text-3xl font-bold text-[#330086]">
                                         <CountUp
+                                            start={true}
                                             end={item.value}
                                             suffix={item.suffix}
                                         />
