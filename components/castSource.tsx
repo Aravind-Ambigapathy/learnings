@@ -23,17 +23,17 @@ const processes = [
     {
         title: "Sand Casting",
         image: "/images/sand-cast.png",
-        href: "#",
+        href: "https://www.rivexa.com/industrial-goods/casting/sand-casting",
     },
     {
         title: "Investment Casting",
         image: "/images/investment-casting.png",
-        href: "#",
+        href: "https://www.rivexa.com/industrial-goods/casting/investment-casting",
     },
     {
         title: "Die Casting",
         image: "/images/die-casting.png",
-        href: "#",
+        href: "https://www.rivexa.com/industrial-goods/casting/aluminium-die-casting",
     },
 ];
 

@@ -4,22 +4,22 @@ const processes = [
   {
     title: "Forging",
     image: "/images/processor1.png",
-    href: "#",
+    href: "https://www.rivexa.com/industrial-goods/forging",
   },
   {
     title: "Fabrication",
     image: "/images/processor2.png",
-    href: "#",
+    href: "https://www.rivexa.com/industrial-goods/fabrication",
   },
   {
     title: "Extrusion",
     image: "/images/industries4.png",
-    href: "#",
+    href: "https://www.rivexa.com/industrial-goods/extrusion/aluminium-extrusion",
   },
   {
     title: "Machining",
     image: "/images/processor4.png",
-    href: "#",
+    href: "https://www.rivexa.com/industrial-goods/machining",
   },
 ];
 

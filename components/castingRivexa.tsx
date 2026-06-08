@@ -139,15 +139,17 @@ export default function CastingWithRivexa() {
                 {/* CTA */}
                 <div className="mt-8 overflow-hidden rounded-3xl">
                     <div className="grid md:grid-cols-[1fr_260px]">
-                        <div className="bg-[#330086] px-5 py-4 flex gap-2 items-end">
-                            <div>
+                        <div className="bg-[#330086] px-5 py-4 flex justify-between gap-2 items-end">
+                            <div className="flex flex-col">
                                 <h3 className="font-heading text-2xl text-white">
                                     What is Casting?
                                 </h3>
-
-                                <p className="mt-3 text-white/80">
-                                    Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing
-                                </p>
+                                {
+                                    isOpen ? "" :
+                                        <p className="mt-3 text-white/80">
+                                            Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing...
+                                        </p>
+                                }
                             </div>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
@@ -185,7 +187,7 @@ export default function CastingWithRivexa() {
                         <div className="grid gap-8 md:grid-cols-3 bg-[#F8F6FC] p-6 border border-[#E5DFF0]">
                             <div className="col-span-2">
                                 <h4 className="font-heading text-2xl text-[#331C6F]">
-                                    Casting Process
+                                    Casting
                                 </h4>
 
                                 <p className="mt-4 text-[#494551]">
