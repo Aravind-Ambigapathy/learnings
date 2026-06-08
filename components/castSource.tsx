@@ -42,14 +42,14 @@ export default function CastSourcePromise() {
         <section className="bg-[#F7F2FA] py-20">
             <div className="mx-auto max-w-6xl px-6">
                 <div className="text-center">
-                    <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
-                        The CastSource Promise
+                    <h2 className="font-heading text-2xl font-semibold text-[#331C6F]">
+                        Upload your engineering drawings and let us handle the rest. Your trusted India sourcing partcner for casting products- delivered at
                     </h2>
 
-                    <p className="mt-4 text-[#494551] font-semibold font-body">
+                    {/* <p className="mt-4 text-[#494551] font-semibold font-body">
                         Upload your engineering drawings and let us handle the rest. Your
                         trusted India sourcing partner for casting products delivered at
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* Promise Cards */}
@@ -78,7 +78,7 @@ export default function CastSourcePromise() {
                     ))}
                 </div>
 
-                <p className="mt-8 text-center font-body text-[#364153] font-semibold">
+                <p className="mt-8 text-center text-lg font-body text-[#364153] font-semibold">
                     End-to-end managed sourcing through verified manufacturers for
                 </p>
 

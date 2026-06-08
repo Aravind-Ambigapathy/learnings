@@ -33,9 +33,9 @@ export default function HeroSection() {
     return (
         <section className="relative overflow-hidden">
             {/* Background Image */}
-            <div className="relative h-[650px]">
+            <div className="relative pb-6 h-max md:h-[700px]">
                 <Image
-                    src="/images/home-banner.png"
+                    src="/images/home-banner1.png"
                     alt="Casting Solutions"
                     fill
                     priority
@@ -48,7 +48,7 @@ export default function HeroSection() {
                 {/* Content */}
                 <div className="relative z-10 mx-auto px-6 lg:px-12 pt-16 lg:pt-20 bg-black/5">
                     <div className=" w-full lg:max-w-4xl">
-                        <h1 className="font-heading text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+                        <h1 className="font-heading text-white text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
                             rivexa Casting Solutions –
                             <br />
                             Your Global Sourcing
@@ -56,7 +56,7 @@ export default function HeroSection() {
                             Platform
                         </h1>
 
-                        <p className="mt-5 text-[#E8C21D] text-2xl font-body md:text-3xl font-semibold leading-snug">
+                        <p className="mt-5 text-[#E8C21D] text-2xl font-body md:text-4xl font-semibold leading-snug">
                             One drawing. One platform.
                             <br />
                             Multiple casting processes.

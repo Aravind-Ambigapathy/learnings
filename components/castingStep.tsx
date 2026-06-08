@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 
 const steps = [
     {
@@ -69,11 +70,14 @@ const steps = [
 ];
 export default function CastingProcess() {
     const [activeStep, setActiveStep] = useState(1);
-
+    const sectionRef = useRef<HTMLElement>(null);
+    const [isInView, setIsInView] = useState(false);
     const currentStep = steps[activeStep - 1];
     const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
+        if (!isInView) return;
+
         const timer = setInterval(() => {
             setIsAnimating(true);
 
@@ -84,12 +88,31 @@ export default function CastingProcess() {
 
                 setIsAnimating(false);
             }, 250);
-        }, 4000);
+        }, 8000);
 
         return () => clearInterval(timer);
+    }, [isInView]);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInView(entry.isIntersecting);
+            },
+            {
+                threshold: 0.4,
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
     }, []);
     return (
-        <section className="bg-gradient-to-tl from-[#0F172BF2] via-[#4A3587E5] to-[#0F172BF2] py-14">
+        <section
+            ref={sectionRef}
+            className="bg-gradient-to-tl from-[#0F172BF2] via-[#4A3587E5] to-[#0F172BF2] py-14"
+        >
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-sm font-semibold font-body uppercase tracking-[3px] text-white/70">
                     Step by Step
@@ -251,8 +274,8 @@ export default function CastingProcess() {
                             key={index}
                             onClick={() => setActiveStep(index + 1)}
                             className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${activeStep === index + 1
-                                    ? "w-8 bg-white"
-                                    : "w-2 bg-white/40"
+                                ? "w-8 bg-white"
+                                : "w-2 bg-white/40"
                                 }`}
                         />
                     ))}

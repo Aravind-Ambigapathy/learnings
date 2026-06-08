@@ -108,7 +108,7 @@ export default function CastingWithRivexa() {
                                             {feature.title}
                                         </h3>
 
-                                        <p className="mt-1 text-sm font-body text-[#6B7280]">
+                                        <p className="mt-1 font-body font-lg text-[#6B7280]">
                                             {feature.description}
                                         </p>
                                     </div>
@@ -153,10 +153,10 @@ export default function CastingWithRivexa() {
                             </div>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className={`bg-white h-10 w-10 shrink-0 rounded-full flex justify-center items-center transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-                                    }`}
+                                className={`text-white shrink-0 rounded-full flex justify-center items-center transition-transform font-semibold cursor-pointer duration-300 underline`}
                             >
-                                <Arrow />
+                                {!isOpen ? "Learn more" : "Learn less"
+                                }
                             </button>
                         </div>
 
@@ -180,28 +180,24 @@ export default function CastingWithRivexa() {
                     </div>
                     <div
                         className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen
-                            ? "max-h-[600px] opacity-100"
+                            ? " opacity-100"
                             : "max-h-0 opacity-0"
                             }`}
                     >
                         <div className="grid gap-8 md:grid-cols-3 bg-[#F8F6FC] p-6 border border-[#E5DFF0]">
                             <div className="col-span-2">
-                                <h4 className="font-heading text-2xl text-[#331C6F]">
-                                    Casting
-                                </h4>
-
                                 <p className="mt-4 text-[#494551]">
                                     Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing complex geometries that are difficult or costly to achieve through machining. Common casting methods include sand casting, aluminum die casting, and investment casting, each suited to different production needs, materials, and precision levels. Casting supports a wide range of industries such as automotive, aerospace, machinery, and construction by enabling cost-effective mass production as well as customized components.
                                 </p>
                             </div>
 
-                            <div>
+                            <div className="col-span-2 sm:col-span-1 overflow-hidden h-max rounded-2xl">
                                 <Image
                                     src="/images/casting-rivexa.png"
                                     alt="Casting Process"
                                     width={300}
                                     height={200}
-                                    className="w-full rounded-2xl object-cover"
+                                    className="w-full h-60 md:h-52 object-cover"
                                 />
                             </div>
                         </div>

@@ -173,11 +173,11 @@ export default function SurfacePreparation() {
                                         {item.title}
                                     </h3>
 
-                                    <span
+                                    {/* <span
                                         className={`rounded-full px-3 py-1 text-xs font-medium ${item.badgeColor}`}
                                     >
                                         {item.badge}
-                                    </span>
+                                    </span> */}
                                 </div>
 
                                 <div className="my-4 h-px bg-[#ECE7F3]" />
