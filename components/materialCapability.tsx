@@ -11,6 +11,8 @@ const materials = [
         count: 5,
         color: "#5C3DBB",
         icon: <CastIron />,
+        description:
+            "Our cast iron capabilities are engineered for applications that demand durability, wear resistance and costeffective large-scale production. Grey iron is widely used for engine blocks, housings, and machine bases due to its machinability and thermal stability. Ductile iron offers higher strength and impact resistance for automotive, piping, and structural parts. White iron, Ni-Hard, and High Chrome iron grades are ideal for abrasive and high-wear environments such as mining, cement, power, and material handling industries.",
         materials: [
             {
                 name: "Grey Iron",
@@ -39,6 +41,8 @@ const materials = [
         count: 5,
         color: "#215A87",
         icon: <Steel />,
+        description:
+            "We offer a broad range of steel casting solutions designed for strength and corrosion resistance. Carbon steel is preferred for heavy-duty structural and industrial components requiring high load-bearing capacity. Stainless steel provides superior corrosion resistance, making it ideal for food processing, marine, and chemical industries. Manganese steel is valued for exceptional wear resistance in crushers and rail components, while Duplex and Super Duplex steels deliver outstanding performance in offshore oil & gas, and aggressive chemical environments.",
         materials: [
             {
                 name: "Carbon Steel",
@@ -67,6 +71,8 @@ const materials = [
         count: 3,
         color: "#2A8B61",
         icon: <Alloys />,
+        description:
+            "Our non-ferrous alloy casting capabilities are optimized for lightweight performance, conductivity and premium surface finish. Aluminum alloys are widely used in automotive, aerospace, and electronics for their high strength-to-weight ratio and corrosion resistance. Zinc alloys are ideal for die-cast components requiring intricate details, tight tolerances, and decorative finishes. Copper alloys are chosen for excellent thermal and electrical conductivity, corrosion resistance and long-term reliability.",
         materials: [
             {
                 name: "Aluminum Alloys",
@@ -115,7 +121,7 @@ export default function MaterialCapabilities() {
             className="bg-white py-14"
         >
             <div className="mx-auto max-w-7xl px-6">
-                <h2 className="text-center font-heading text-4xl font-bold text-[#331C6F]">
+                <h2 className="text-center font-heading text-4xl font-semibold text-[#331C6F]">
                     Material Capabilities for Diverse Industries
                 </h2>
 
@@ -197,24 +203,18 @@ export default function MaterialCapabilities() {
     transition-all
     duration-500
     ease-in-out
-    group-hover:max-h-[500px]
+    group-hover:max-h-[800px]
     group-hover:opacity-100
   "
                             >
                                 <div className="my-3 h-px bg-[#E7E2EF]" />
 
-                                <div className="space-y-3 pb-2">
+                                <div className="space-y-3">
                                     {item.materials.map((material) => (
-
-                                        <div
-                                            key={material.name}
-                                            className="flex gap-4"
-                                        >
+                                        <div key={material.name} className="flex gap-4">
                                             <div
                                                 className="mt-2 h-3 w-3 shrink-0 rounded-full"
-                                                style={{
-                                                    backgroundColor: item.color,
-                                                }}
+                                                style={{ backgroundColor: item.color }}
                                             />
 
                                             <div>
@@ -228,6 +228,13 @@ export default function MaterialCapabilities() {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+
+                                {/* Description */}
+                                <div className="mt-5 border-t border-[#E7E2EF] pt-5">
+                                    <p className="text-sm leading-6 text-[#667085]">
+                                        {item.description}
+                                    </p>
                                 </div>
                             </div>
                         </div>

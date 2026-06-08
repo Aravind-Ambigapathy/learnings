@@ -70,7 +70,7 @@ function Capability() {
     return (
         <section className="bg-[#F7F3FA] py-12">
             <div className="mx-auto max-w-7xl px-6">
-                <h2 className="text-center font-heading text-4xl font-bold text-[#331C6F]">
+                <h2 className="text-center font-heading text-4xl font-semibold text-[#331C6F]">
                     Comprehensive Casting Capabilities
                 </h2>
 

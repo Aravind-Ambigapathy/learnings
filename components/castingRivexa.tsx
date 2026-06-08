@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Arrow from "./icons/arrow";
 
 const features = [
     {
@@ -37,6 +38,7 @@ const features = [
 export default function CastingWithRivexa() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -69,7 +71,7 @@ export default function CastingWithRivexa() {
                         : "-translate-y-10 opacity-0"
                         }`}
                 >
-                    <h2 className="font-heading text-5xl font-bold text-[#331C6F]">
+                    <h2 className="font-heading text-5xl font-semibold text-[#331C6F]">
                         Casting with rivexa
                     </h2>
                     <p className="mt-4 text-[#494551] font-body font-semibold">
@@ -134,21 +136,74 @@ export default function CastingWithRivexa() {
                     </div>
                 </div>
 
-                {/* Bottom Info Box */}
-                <div
-                    className={`mt-10 rounded-3xl bg-[#EEE7FA] p-5 transition-all duration-1000 ease-out ${isVisible
-                            ? "translate-y-0 opacity-100"
-                            : "-translate-y-10 opacity-0"
-                        }`}
-                    style={{ transitionDelay: "600ms" }}
-                >
-                    <h3 className="font-heading text-2xl font-semibold text-[#331C6F]">
-                        What is Casting?
-                    </h3>
+                {/* CTA */}
+                <div className="mt-8 overflow-hidden rounded-3xl">
+                    <div className="grid md:grid-cols-[1fr_260px]">
+                        <div className="bg-[#330086] px-5 py-4 flex gap-2 items-end">
+                            <div>
+                                <h3 className="font-heading text-2xl text-white">
+                                    What is Casting?
+                                </h3>
 
-                    <p className="mt-3 text-[#4B5563] text-sm font-body font-semibold">
-                        Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing
-                    </p>
+                                <p className="mt-3 text-white/80">
+                                    Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing
+                                </p>
+                            </div>
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className={`bg-white h-10 w-10 shrink-0 rounded-full flex justify-center items-center transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                                    }`}
+                            >
+                                <Arrow />
+                            </button>
+                        </div>
+
+                        <div className="flex items-center justify-center bg-[#4F378B] p-6">
+                            <button
+                                className="
+                  rounded-2xl
+                  bg-white
+                  px-12
+                  py-4
+                  font-semibold
+                  text-[#4500A8]
+                  transition-all
+                  duration-300
+                  hover:scale-105
+                "
+                            >
+                                Contact Us
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen
+                            ? "max-h-[600px] opacity-100"
+                            : "max-h-0 opacity-0"
+                            }`}
+                    >
+                        <div className="grid gap-8 md:grid-cols-3 bg-[#F8F6FC] p-6 border border-[#E5DFF0]">
+                            <div className="col-span-2">
+                                <h4 className="font-heading text-2xl text-[#331C6F]">
+                                    Casting Process
+                                </h4>
+
+                                <p className="mt-4 text-[#494551]">
+                                    Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing complex geometries that are difficult or costly to achieve through machining. Common casting methods include sand casting, aluminum die casting, and investment casting, each suited to different production needs, materials, and precision levels. Casting supports a wide range of industries such as automotive, aerospace, machinery, and construction by enabling cost-effective mass production as well as customized components.
+                                </p>
+                            </div>
+
+                            <div>
+                                <Image
+                                    src="/images/casting-rivexa.png"
+                                    alt="Casting Process"
+                                    width={300}
+                                    height={200}
+                                    className="w-full rounded-2xl object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

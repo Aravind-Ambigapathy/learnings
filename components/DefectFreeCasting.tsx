@@ -49,7 +49,7 @@ export default function DefectFreeCasting() {
             <div className="mx-auto max-w-7xl px-6">
                 {/* Heading */}
                 <div className="text-center">
-                    <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
+                    <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
                         Defect-Free Casting Practices Through Quality Control
                     </h2>
 

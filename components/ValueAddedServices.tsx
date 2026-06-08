@@ -49,7 +49,7 @@ export default function ValueAddedServices() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div className="mx-auto max-w-5xl text-center">
-          <h2 className="font-heading text-4xl font-bold leading-tight text-white">
+          <h2 className="font-heading text-4xl font-semibold leading-tight text-white">
             Beyond casting: rivexa ensures
             <br />
             integrated post-processing operations
@@ -113,7 +113,7 @@ export default function ValueAddedServices() {
             "
           >
             <div>
-              <h3 className="font-heading text-xl font-bold text-white">
+              <h3 className="font-heading text-xl font-semibold text-white">
                 Ready to simplify your supply chain?
               </h3>
 

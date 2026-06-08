@@ -33,7 +33,7 @@ export default function HeroSection() {
     return (
         <section className="relative overflow-hidden">
             {/* Background Image */}
-            <div className="relative ">
+            <div className="relative h-[650px]">
                 <Image
                     src="/images/home-banner.png"
                     alt="Casting Solutions"
@@ -69,15 +69,15 @@ export default function HeroSection() {
                 </div>
 
                 {/* Stats */}
-                <div className=" z-20 w-full flex my-8 px-6">
-                    <div className="rounded-3xl bg-white/30 z-20 w-full p-5">
+                <div className=" z-20 w-full flex justify-center my-8 px-6">
+                    <div className="rounded-3xl bg-white/30 z-20 w-full p-5 max-w-5xl">
                         <div className="grid grid-cols-2 gap-4 md:grid-cols-5 w-full">
                             {stats.map((item) => (
                                 <div
                                     key={item.label}
                                     className="rounded-xl bg-white p-5 text-center shadow-sm hover:-translate-y-1 hover:shadow-2xl"
                                 >
-                                    <div className="font-heading text-3xl font-bold text-[#330086]">
+                                    <div className="font-heading text-3xl font-semibold text-[#330086]">
                                         <CountUp
                                             start={true}
                                             end={item.value}

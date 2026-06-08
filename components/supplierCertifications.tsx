@@ -95,7 +95,7 @@ export default function SupplierCertifications() {
             <div className="mx-auto max-w-7xl px-6">
                 {/* Heading */}
                 <div className="text-center">
-                    <h2 className="font-heading text-4xl font-bold text-white">
+                    <h2 className="font-heading text-4xl font-semibold text-white">
                         Certifications of Supplier Network
                     </h2>
                 </div>
@@ -132,7 +132,7 @@ export default function SupplierCertifications() {
                             </div>
 
                             <div className="mt-6">
-                                <h3 className="font-heading text-3xl font-bold text-white">
+                                <h3 className="font-heading text-3xl font-semibold text-white">
                                     {item.title}
                                 </h3>
 
@@ -185,7 +185,7 @@ export default function SupplierCertifications() {
                                     key={item.label}
                                     className="rounded-2xl border border-white/50 px-4 py-4  text-center transition-all duration-300 hover:bg-white/5"
                                 >
-                                    <div className="font-heading text-2xl font-bold text-[#FFD500]">
+                                    <div className="font-heading text-2xl font-semibold text-[#FFD500]">
                                         <CountUp
                                             end={item.value}
                                             suffix={item.suffix}

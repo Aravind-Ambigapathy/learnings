@@ -25,7 +25,7 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
         <div
-          className={`font-heading text-2xl font-bold ${
+          className={`font-heading text-2xl font-semibold ${
             scrolled ? "text-gray-900" : "text-white"
           }`}
         >

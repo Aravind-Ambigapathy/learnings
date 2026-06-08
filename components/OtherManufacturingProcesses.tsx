@@ -29,7 +29,7 @@ export default function OtherManufacturingProcesses() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div>
-          <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
+          <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
             Explore Other Manufacturing Processes
           </h2>
 
@@ -97,7 +97,7 @@ export default function OtherManufacturingProcesses() {
                 Let's Talk
               </p>
 
-              <h3 className="mt-3 font-heading text-4xl font-bold text-white">
+              <h3 className="mt-3 font-heading text-4xl font-semibold text-white">
                 Ready to source smarter?
               </h3>
 

@@ -95,7 +95,7 @@ export default function CastingProcess() {
                     Step by Step
                 </p>
 
-                <h2 className="mt-3 font-heading text-4xl font-bold text-white">
+                <h2 className="mt-3 font-heading text-4xl font-semibold text-white">
                     The Casting Process
                 </h2>
 
@@ -177,7 +177,7 @@ export default function CastingProcess() {
                             </p>
 
                             <h3
-                                className={`mt-2.4 font-heading text-2xl font-bold text-white transition-all duration-300 ${isAnimating
+                                className={`mt-2.4 font-heading text-2xl font-semibold text-white transition-all duration-300 ${isAnimating
                                     ? "translate-y-4 opacity-0"
                                     : "translate-y-0 opacity-100"
                                     }`}

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Quality from "./icons/quality";
+import QualityWhite from "./icons/qualitywhite";
 
 const traditional = [
     {
@@ -100,7 +101,7 @@ export default function WhyRivexa() {
             <div className="mx-auto max-w-7xl px-6">
                 {/* Heading */}
                 <h2
-                    className={`font-heading text-center text-4xl font-bold text-[#331C6F]
+                    className={`font-heading text-center text-4xl font-semibold text-[#331C6F]
     transition-all duration-1000 ease-out
     ${isVisible
                             ? "translate-y-0 opacity-100"
@@ -179,7 +180,7 @@ export default function WhyRivexa() {
                         <div className="rounded-2xl bg-[#330086] px-6 py-5">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white">
-                                    ✓
+                                    <QualityWhite />
                                 </div>
 
                                 <h3 className="font-heading text-2xl text-white">

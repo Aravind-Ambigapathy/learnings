@@ -42,7 +42,7 @@ export default function CastSourcePromise() {
         <section className="bg-[#F7F2FA] py-20">
             <div className="mx-auto max-w-6xl px-6">
                 <div className="text-center">
-                    <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
+                    <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
                         The CastSource Promise
                     </h2>
 

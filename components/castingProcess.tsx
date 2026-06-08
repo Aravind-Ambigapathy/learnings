@@ -11,38 +11,38 @@ const processes = [
     bestFor: "Medium to very large components",
     capability: "Weight up to 3000kg, wide material range",
     description:
-      "Sand casting is one of the most versatile and cost-effective metal casting methods.",
+      "Sand casting is one of the most versatile and cost-effective metal casting methods, ideal for producing both simple and complex components in small to large sizes. The process involves pouring molten metal into molds made from specially prepared sand, which are broken away after solidification. Sand casting supports a wide range of ferrous and non-ferrous metals and is commonly used for pumps, valves, machinery parts, and heavy equipment components. It is especially valued for low tooling costs and flexibility in custom production.",
   },
   {
     id: "die",
     name: "Die Casting",
     image: "/images/core-casting2.png",
-    bestFor: "High volume production",
-    capability: "Excellent dimensional accuracy",
+    bestFor: "High-volume aluminum or zinc components",
+    capability: "Excellent repeat ability and thin wall capability up to 30 kg",
     description:
-      "Die casting delivers high precision parts with excellent surface finish.",
+      "Aluminum die casting is a high-efficiency manufacturing process used to produce lightweight, durable, and dimensionally accurate metal components in large volumes. Molten aluminum is injected into precision steel dies under pressure, enabling the creation of complex shapes with smooth surfaces and tight tolerances. Known for its excellent strength-to-weight ratio, corrosion resistance, and thermal conductivity, aluminum die casting is widely used in automotive, electronics, aerospace and industrial equipment applications.",
   },
   {
     id: "investment",
     name: "Investment Casting",
     image: "/images/core-casting3.png",
-    bestFor: "Complex intricate components",
-    capability: "Very high precision and finish",
+    bestFor: "Complex geometry with tight tolerance",
+    capability: "Superior surface finish and dimensional accuracy up to 50kg",
     description:
-      "Investment casting is ideal for complex geometries and premium finishes.",
+      "Investment casting, also known as lost-wax casting, is a precision casting process used to manufacture highly detailed components with excellent surface finish and dimensional accuracy. The process begins with a wax pattern coated in ceramic material to form a mold, which is then heated to remove the wax before molten metal is poured in. Investment casting is ideal for complex geometries, thin walls, and intricate designs that require minimal machining. It is widely used in aerospace, medical devices, defense, automotive, and engineering applications.",
   },
 ];
 
 export default function CoreCastingProcesses() {
   const [activeTab, setActiveTab] = useState(0);
-
+  const [showFullDescription, setShowFullDescription] = useState(false);
   const process = processes[activeTab];
 
   return (
     <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-6">
         {/* Title */}
-        <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
+        <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
           Core Casting Processes
         </h2>
 
@@ -51,12 +51,14 @@ export default function CoreCastingProcesses() {
           {processes.map((item, index) => (
             <button
               key={item.id}
-              onClick={() => setActiveTab(index)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${
-                activeTab === index
-                  ? "bg-[#331C6F] text-white"
-                  : "bg-[#E8E4F2] text-[#6B6B7A] hover:bg-[#DDD5EF]"
-              }`}
+              onClick={() => {
+                setActiveTab(index);
+                setShowFullDescription(false);
+              }}
+              className={`rounded-full px-5 py-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${activeTab === index
+                ? "bg-[#331C6F] text-white"
+                : "bg-[#E8E4F2] text-[#6B6B7A] hover:bg-[#DDD5EF]"
+                }`}
             >
               {item.name}
             </button>
@@ -67,7 +69,7 @@ export default function CoreCastingProcesses() {
         <div className="mt-6 grid gap-4 lg:grid-cols-[320px_1fr]">
           {/* Left Card */}
           <div className="rounded-xl border border-[#D8D0E5] bg-white p-6">
-            <h3 className="font-heading text-2xl font-bold text-[#331C6F]">
+            <h3 className="font-heading text-2xl font-semibold text-[#331C6F]">
               {process.name}
             </h3>
 
@@ -92,9 +94,27 @@ export default function CoreCastingProcesses() {
                 What is {process.name}?
               </h4>
 
-              <p className="mt-2 text-sm font-semibold leading-6 text-[#5D6472]">
-                {process.description}
-              </p>
+              <div className="pt-4">
+                <h4 className="font-semibold text-[#331C6F]">
+                  What is {process.name}?
+                </h4>
+
+                <p
+                  className={`mt-2 text-sm font-semibold leading-6 text-[#5D6472] ${showFullDescription ? "" : "line-clamp-2"
+                    }`}
+                >
+                  {process.description}
+                </p>
+
+                {process.description.length > 100 && (
+                  <button
+                    onClick={() => setShowFullDescription(!showFullDescription)}
+                    className="mt-2 text-sm font-semibold text-[#331C6F] hover:underline cursor-pointer"
+                  >
+                    {showFullDescription ? "Read Less" : "Read More"}
+                  </button>
+                )}
+              </div>
 
               {/* <button className="mt-3 text-sm font-medium text-[#331C6F] hover:underline">
                 Learn more
@@ -118,7 +138,7 @@ export default function CoreCastingProcesses() {
         {/* Comparison Table */}
         <div className="mt-8">
           <div className="text-center">
-            <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
+            <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
               Casting Process Comparison
             </h2>
 

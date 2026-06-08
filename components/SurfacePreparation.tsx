@@ -87,21 +87,21 @@ export default function SurfacePreparation() {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <section className="bg-white py-16">
+        <section className="bg-white py-14">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Heading */}
-                <h2 className="font-heading text-4xl lg:text-5xl font-bold text-[#331C6F]">
+                <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
                     Surface Preparation, Finishing &
                     Quality Control
                 </h2>
 
-                <p className="mt-4 text-lg text-[#667085]">
+                <p className="mt-3 text-lg text-[#667085]">
                     Superior finishing. Uncompromising quality.
                     Enhanced performance.
                 </p>
 
                 {/* Tabs */}
-                <div className="mt-10 inline-flex rounded-2xl bg-[#F0EAFB] p-2">
+                <div className="mt-6 inline-flex rounded-2xl bg-[#F0EAFB] p-2">
                     {tabs.map((tab, index) => (
                         <button
                             key={tab}
@@ -110,8 +110,8 @@ export default function SurfacePreparation() {
                 rounded-xl px-6 py-3
                 font-medium transition-all duration-300
                 ${activeTab === index
-                                    ? "bg-[#5C3DBB] text-white shadow"
-                                    : "text-[#5C3DBB]"
+                                    ? "bg-[#4F378B] text-white shadow"
+                                    : "text-[#4F378B]"
                                 }
               `}
                         >

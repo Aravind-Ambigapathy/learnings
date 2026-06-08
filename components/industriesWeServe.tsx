@@ -45,7 +45,7 @@ export default function IndustriesWeServe() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div>
-          <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
+          <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
             Industries We Serve
           </h2>
 
