@@ -147,7 +147,7 @@ export default function CastingProcess() {
                                         className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white cursor-pointer"
                                     >
                                         <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6.0629 1.11328L1.11328 6.0629L6.0629 11.0125" stroke="white" stroke-width="2.22733" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.0629 1.11328L1.11328 6.0629L6.0629 11.0125" stroke="white" strokeWidth="2.22733" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
 
                                     </button>
@@ -162,7 +162,7 @@ export default function CastingProcess() {
                                     >
                                         <div className="rotate-180">
                                             <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6.0629 1.11328L1.11328 6.0629L6.0629 11.0125" stroke="white" stroke-width="2.22733" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M6.0629 1.11328L1.11328 6.0629L6.0629 11.0125" stroke="white" strokeWidth="2.22733" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
                                         </div>
                                     </button>

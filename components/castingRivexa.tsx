@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const features = [
     {
@@ -32,10 +35,40 @@ const features = [
 ];
 
 export default function CastingWithRivexa() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
     return (
-        <section className="py-14 bg-white">
+        <section
+            ref={sectionRef}
+            className="py-14 bg-white overflow-hidden"
+        >
             <div className="mx-auto max-w-6xl px-6">
-                <div>
+                <div
+                    className={`transition-all duration-700 ease-out ${isVisible
+                        ? "translate-y-0 opacity-100"
+                        : "-translate-y-10 opacity-0"
+                        }`}
+                >
                     <h2 className="font-heading text-5xl font-bold text-[#331C6F]">
                         Casting with rivexa
                     </h2>
@@ -49,10 +82,18 @@ export default function CastingWithRivexa() {
                     <div>
 
                         <div className="space-y-4">
-                            {features.map((feature) => (
+                            {features.map((feature, index) => (
                                 <div
                                     key={feature.title}
-                                    className="flex gap-4 rounded-2xl border border-[#E5DFF0] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                                    className={`flex gap-4 rounded-2xl border border-[#E5DFF0] p-5 hover:-translate-y-1 hover:shadow-md
+                                    transition-all duration-700 ease-out
+                                    ${isVisible
+                                            ? "translate-y-0 opacity-100"
+                                            : "-translate-y-12 opacity-0"
+                                        }`}
+                                    style={{
+                                        transitionDelay: `${200 + index * 120}ms`,
+                                    }}
                                 >
                                     <div
                                         className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${feature.bg}`}
@@ -74,7 +115,13 @@ export default function CastingWithRivexa() {
                         </div>
                     </div>
                     {/* Right */}
-                    <div>
+                    <div
+                        className={`transition-all duration-1000 ease-out ${isVisible
+                            ? "translate-y-0 opacity-100"
+                            : "-translate-y-16 opacity-0"
+                            }`}
+                        style={{ transitionDelay: "300ms" }}
+                    >
                         <div className="relative overflow-hidden rounded-2xl">
                             <Image
                                 src="/images/casting-rivexa.png"
@@ -88,7 +135,13 @@ export default function CastingWithRivexa() {
                 </div>
 
                 {/* Bottom Info Box */}
-                <div className="mt-10 rounded-3xl bg-[#EEE7FA] p-5">
+                <div
+                    className={`mt-10 rounded-3xl bg-[#EEE7FA] p-5 transition-all duration-1000 ease-out ${isVisible
+                            ? "translate-y-0 opacity-100"
+                            : "-translate-y-10 opacity-0"
+                        }`}
+                    style={{ transitionDelay: "600ms" }}
+                >
                     <h3 className="font-heading text-2xl font-semibold text-[#331C6F]">
                         What is Casting?
                     </h3>

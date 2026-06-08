@@ -75,7 +75,7 @@ export default function HeroSection() {
                             {stats.map((item) => (
                                 <div
                                     key={item.label}
-                                    className="rounded-xl bg-white p-5 text-center shadow-sm"
+                                    className="rounded-xl bg-white p-5 text-center shadow-sm hover:-translate-y-1 hover:shadow-2xl"
                                 >
                                     <div className="font-heading text-3xl font-bold text-[#330086]">
                                         <CountUp

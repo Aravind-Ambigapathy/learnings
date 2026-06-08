@@ -39,7 +39,7 @@ export default function CoreCastingProcesses() {
   const process = processes[activeTab];
 
   return (
-    <section className="bg-[#F7F3FA] py-14">
+    <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-6">
         {/* Title */}
         <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
@@ -52,7 +52,7 @@ export default function CoreCastingProcesses() {
             <button
               key={item.id}
               onClick={() => setActiveTab(index)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+              className={`rounded-full px-5 py-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${
                 activeTab === index
                   ? "bg-[#331C6F] text-white"
                   : "bg-[#E8E4F2] text-[#6B6B7A] hover:bg-[#DDD5EF]"
@@ -116,7 +116,7 @@ export default function CoreCastingProcesses() {
         </div>
 
         {/* Comparison Table */}
-        <div className="mt-12">
+        <div className="mt-8">
           <div className="text-center">
             <h2 className="font-heading text-4xl font-bold text-[#331C6F]">
               Casting Process Comparison
