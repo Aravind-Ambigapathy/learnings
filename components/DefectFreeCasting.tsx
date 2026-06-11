@@ -1,9 +1,4 @@
 import Image from "next/image";
-import Design from "./icons/design";
-import Simulation from "./icons/simulation";
-import MaterialControl from "./icons/materialControl";
-import Control from "./icons/control";
-import Inspection from "./icons/inspection";
 
 const steps = [
     {
@@ -11,35 +6,35 @@ const steps = [
         description:
             "Optimized flow and solidification to reduce internal defects",
         color: "#4F378B",
-        icon: <Design />,
+        icon: <img src='/images/icons/defect-free-casting/container.svg' />,
     },
     {
         title: "Casting Simulation",
         description:
             "Digital validation to prevent defects before production",
         color: "#1A4D6E",
-        icon: <Simulation />,
+        icon: <img src='/images/icons/defect-free-casting/container-1.svg' />,
     },
     {
         title: "Process Control",
         description:
             "Precision-controlled melting and pouring conditions",
         color: "#C45E00",
-        icon: <Control />,
+        icon: <img src='/images/icons/defect-free-casting/container-2.svg' />,
     },
     {
         title: "Raw Material Control",
         description:
             "Strictly verified material chemistry for uniform output",
         color: "#1A6E5E",
-        icon: <MaterialControl />,
+        icon: <img src='/images/icons/defect-free-casting/container-3.svg' />,
     },
     {
         title: "In-Process Inspection",
         description:
             "Real-time monitoring to maintain quality at every step",
         color: "#2E7D5E",
-        icon: <Inspection />,
+        icon: <img src='/images/icons/defect-free-casting/container-4.svg' />,
     },
 ];
 
@@ -74,11 +69,8 @@ export default function DefectFreeCasting() {
                                 >
                                     {/* Icon */}
                                     <div
-                                        className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border bg-white shadow-sm transition-all duration-300 group-hover:scale-110"
-                                        style={{
-                                            borderColor: `${step.color}40`,
-                                            backgroundColor: `color-mix(in srgb, ${step.color} 20%, transparent)`
-                                        }}
+                                        className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
+                                      
                                     >
                                         <span
                                             className="text-xl"

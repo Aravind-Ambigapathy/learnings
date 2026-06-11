@@ -11,33 +11,33 @@ const surfacePreparation = [
     {
         title: "Shot Blasting",
         description: "Removal of sand and scale",
-        icon: "💨",
+        icon: <img src='/images/icons/surface-preparation/container.svg' />,
     },
     {
         title: "Grinding & Deburring",
         description: "Edge finishing and fettling",
-        icon: "⚙️",
+        icon: <img src='/images/icons/surface-preparation/container-1.svg' />,
     },
     {
         title: "Painting",
         description: "Protective industrial coating",
-        icon: "🎨",
+        icon: <img src='/images/icons/surface-preparation/container-2.svg' />,
     },
     {
         title: "Powder Coating",
         description: "Durable corrosion protection",
-        icon: "🛡️",
+        icon: <img src='/images/icons/surface-preparation/container-3.svg' />,
     },
     {
         title: "Electroplating",
         description: "Functional coating for enhanced surface properties",
-        icon: "⚡",
+        icon: <img src='/images/icons/surface-preparation/container-4.svg' />,
     },
     {
         title: "Chemical Conversion Coating",
         description:
             "Metal surface protection and bonding preparation",
-        icon: "🧪",
+        icon: <img src='/images/icons/surface-preparation/container-5.svg' />,
     },
 ];
 

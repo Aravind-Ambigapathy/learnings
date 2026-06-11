@@ -10,7 +10,7 @@ const materials = [
         name: "Cast Iron",
         count: 5,
         color: "#5C3DBB",
-        icon: <CastIron />,
+        icon:  <img src='/images/icons/material-capabilities/generated-image1.svg' />,
         description:
             "Our cast iron capabilities are engineered for applications that demand durability, wear resistance and costeffective large-scale production. Grey iron is widely used for engine blocks, housings, and machine bases due to its machinability and thermal stability. Ductile iron offers higher strength and impact resistance for automotive, piping, and structural parts. White iron, Ni-Hard, and High Chrome iron grades are ideal for abrasive and high-wear environments such as mining, cement, power, and material handling industries.",
         materials: [
@@ -40,7 +40,7 @@ const materials = [
         name: "Steel",
         count: 5,
         color: "#215A87",
-        icon: <Steel />,
+        icon:  <img src='/images/icons/material-capabilities/generated-image2.svg' />,
         description:
             "We offer a broad range of steel casting solutions designed for strength and corrosion resistance. Carbon steel is preferred for heavy-duty structural and industrial components requiring high load-bearing capacity. Stainless steel provides superior corrosion resistance, making it ideal for food processing, marine, and chemical industries. Manganese steel is valued for exceptional wear resistance in crushers and rail components, while Duplex and Super Duplex steels deliver outstanding performance in offshore oil & gas, and aggressive chemical environments.",
         materials: [
@@ -70,7 +70,7 @@ const materials = [
         name: "Non-Ferrous Alloys",
         count: 3,
         color: "#2A8B61",
-        icon: <Alloys />,
+        icon:  <img src='/images/icons/material-capabilities/generated-image3.svg' />,
         description:
             "Our non-ferrous alloy casting capabilities are optimized for lightweight performance, conductivity and premium surface finish. Aluminum alloys are widely used in automotive, aerospace, and electronics for their high strength-to-weight ratio and corrosion resistance. Zinc alloys are ideal for die-cast components requiring intricate details, tight tolerances, and decorative finishes. Copper alloys are chosen for excellent thermal and electrical conductivity, corrosion resistance and long-term reliability.",
         materials: [

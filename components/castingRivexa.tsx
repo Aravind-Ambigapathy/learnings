@@ -6,28 +6,28 @@ import Arrow from "./icons/arrow";
 
 const features = [
     {
-        icon: '🏭',
+        icon: <img src='/images/icons/casting-rivexa/container.svg' />,
         title: "Customized Manufacturing",
         description:
             "Customized manufacturing through technically capable foundries",
         bg: "bg-pink-100",
     },
     {
-        icon: "💰",
+        icon:  <img src='/images/icons/casting-rivexa/container-1.svg' />,
         title: "Competitive Price Discovery",
         description:
             "Competitive price discovery through multiple tendering and negotiation",
         bg: "bg-green-100",
     },
     {
-        icon: "🔍",
+        icon:  <img src='/images/icons/casting-rivexa/container-2.svg' />,
         title: "Inspection Facilitation",
         description:
             "Inspection facilitation for improved quality control and compliance",
         bg: "bg-blue-100",
     },
     {
-        icon: "🚢",
+        icon:  <img src='/images/icons/casting-rivexa/container-3.svg' />,
         title: "Export-Ready Supply Chains",
         description:
             "Export-ready supply chains with logistics and documentation support",
@@ -98,7 +98,7 @@ export default function CastingWithRivexa() {
                                     }}
                                 >
                                     <div
-                                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${feature.bg}`}
+                                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl`}
                                     >
                                         {feature?.icon}
                                     </div>

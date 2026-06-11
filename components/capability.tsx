@@ -16,7 +16,7 @@ const capabilities = [
             "From miniature components to massive structural castings across all process types.",
         border: "border-[#D9C6FF]",
         text: "#4F378B",
-        icons: <Weight />
+        icons:  <img src='/images/icons/comprehensive-casting/container.svg' />
     },
     {
         title: "Dimensional Precision",
@@ -25,7 +25,7 @@ const capabilities = [
             "International tolerance standards maintained across foundry partners.",
         border: "border-[#BFDDF2]",
         text: "#1A4D6E",
-        icons: <Dimention />
+        icons: <img src='/images/icons/comprehensive-casting/container-1.svg' />
     },
     {
         title: "Scalable Production",
@@ -34,7 +34,7 @@ const capabilities = [
             "5 pieces to 50,000+ runs with consistent quality.",
         border: "border-[#C6E8D7]",
         text: "#2E7D5E",
-        icons: <Scalable />
+        icons: <img src='/images/icons/comprehensive-casting/container-2.svg' />
     },
     {
         title: "Integrated Tooling",
@@ -43,7 +43,7 @@ const capabilities = [
             "End-to-end support from pattern making to die development.",
         border: "border-[#F2D9A6]",
         text: "#8C5E00",
-        icons: <Tooling />
+        icons: <img src='/images/icons/comprehensive-casting/container-3.svg' />
     },
     {
         title: "Quality Control",
@@ -52,7 +52,7 @@ const capabilities = [
             "Dimensional checks, inspections and certifications before shipment.",
         border: "border-[#F4C5D4]",
         text: "#8C1A45",
-        icons: <Quality />
+        icons: <img src='/images/icons/comprehensive-casting/container-4.svg' />
     },
     {
         title: "Export Enablement",
@@ -61,7 +61,7 @@ const capabilities = [
             "Export-ready packaging, customs documentation and logistics support.",
         border: "border-[#CBD5FF]",
         text: "#1A3A8C",
-        icons: <Enablement />
+        icons: <img src='/images/icons/comprehensive-casting/container-5.svg' />
     },
 ];
 
@@ -82,7 +82,7 @@ function Capability() {
                         >
                             <div className="flex gap-3 border-b pb-4">
                                 <section className={`h-14 w-14 flex justify-center items-center rounded`}
-                                    style={{ backgroundColor: `color-mix(in srgb, ${item.text} 20%, transparent)` }}>
+                                  >
                                     {item.icons}
                                 </section>
                                 <section>

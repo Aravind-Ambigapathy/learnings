@@ -10,35 +10,35 @@ const services = [
     title: "Machining",
     description:
       "CNC turning, milling, and drilling for precision finishing",
-    icon: <MachiningIcon />,
+    icon: <img src='/images/icons/beyond-casting/container.svg' />,
     accent: "#8B7DDB",
   },
   {
     title: "Heat Treatment",
     description:
       "Annealing, normalizing, and quenching for enhanced performance",
-    icon: <HeatTreatmentIcon />,
+    icon: <img src='/images/icons/beyond-casting/container-1.svg' />,
     accent: "#F59E0B",
   },
   {
     title: "Impregnation",
     description:
       "Leak-proofing solutions for porous castings",
-    icon: <ImpregnationIcon />,
+    icon: <img src='/images/icons/beyond-casting/container-2.svg' />,
     accent: "#14B8A6",
   },
   {
     title: "Assembly",
     description:
       "Partial to full assembly support for ready-to-use delivery",
-    icon: <AssemblyIcon />,
+    icon: <img src='/images/icons/beyond-casting/container-3.svg' />,
     accent: "#2563EB",
   },
   {
     title: "Packaging",
     description:
       "Export-ready packing for safe global transit",
-    icon: <PackagingIcon />,
+    icon: <img src='/images/icons/beyond-casting/container-4.svg' />,
     accent: "#A855F7",
   },
 ];
