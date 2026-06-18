@@ -66,9 +66,16 @@ export default function CoreCastingProcesses() {
         </div>
 
         {/* Process Section */}
-        <div className="mt-6 grid gap-4 lg:grid-cols-[320px_1fr]">
+        <div
+          className={`mt-6 grid gap-4 transition-all  ${showFullDescription
+            ? "lg:grid-cols-[500px_1fr]"
+            : "lg:grid-cols-[320px_1fr]"
+            }`}
+        >
           {/* Left Card */}
-          <div className="rounded-xl border border-[#D8D0E5] bg-white p-6">
+          <div
+            className={`rounded-xl border border-[#D8D0E5] bg-white p-6 transition-all duration-500`}
+          >
             <h3 className="font-heading text-2xl font-semibold text-[#331C6F]">
               {process.name}
             </h3>
@@ -90,7 +97,7 @@ export default function CoreCastingProcesses() {
             </div>
 
             <div className="pt-4">
-         
+
               <div className="pt-4">
                 <h4 className="font-semibold text-[#331C6F]">
                   What is {process.name}?

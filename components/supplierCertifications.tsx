@@ -6,30 +6,30 @@ import CountUp from "./countUp";
 
 const certifications = [
     {
-        title: "IATF 16949",
-        subtitle: "AUTOMOTIVE QUALITY MANAGEMENT",
-        logo: "/images/certificate1.png",
-        accent: "#6E4BB8",
-        badge: "#6E4BB8",
-    },
-    {
         title: "ISO 9001",
-        subtitle: "QUALITY MANAGEMENT SYSTEMS",
+        subtitle: "QUALITY MANAGEMENT",
         logo: "/images/certificate2.png",
         accent: "#1D6D88",
         badge: "#1D6D88",
     },
     {
-        title: "ATEX",
-        subtitle: "EXPLOSIVE ATMOSPHERE EQUIPMENT",
-        logo: "/images/certificate3.png",
+        title: "IATF 16949",
+        subtitle: "AUTOMOTIVE QUALITY",
+        logo: "/images/certificate1.png",
+        accent: "#6E4BB8",
+        badge: "#6E4BB8",
+    },
+    {
+        title: "ISO 14001",
+        subtitle: "Environmental",
+        logo: "/images/certificate5.png",
         accent: "#D97706",
         badge: "#D97706",
     },
     {
-        title: "SA 8000",
-        subtitle: "SOCIAL ACCOUNTABILITY STANDARD",
-        logo: "/images/certificate4.png",
+        title: "ASTM / EN / DIN",
+        subtitle: "Material Standards",
+        logo: "/images/certificate6.png",
         accent: "#15803D",
         badge: "#15803D",
     },
@@ -45,7 +45,7 @@ const highlights = [
 const stats = [
     {
         value: 50,
-        suffix: "%",
+        suffix: "+",
         label: "Verified casting manufacturers",
     },
     {

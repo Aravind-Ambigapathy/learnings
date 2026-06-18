@@ -30,13 +30,13 @@ const surfacePreparation = [
     },
     {
         title: "Electroplating",
-        description: "Functional coating for enhanced surface properties",
+        description: "Functional coating",
         icon: <img src='/images/icons/surface-preparation/container-4.svg' />,
     },
     {
         title: "Chemical Conversion Coating",
         description:
-            "Metal surface protection and bonding preparation",
+            "Metal surface protection",
         icon: <img src='/images/icons/surface-preparation/container-5.svg' />,
     },
 ];
@@ -63,7 +63,7 @@ const qualityControl = [
     },
     {
         title: "Visual Inspection",
-        description: "Surface defect identification and classification",
+        description: "Surface defect identification",
         badge: "Visual",
         badgeColor: "bg-[#E7F8F1] text-[#15803D]",
     },
@@ -143,7 +143,7 @@ export default function SurfacePreparation() {
                                     </div>
 
                                     <div>
-                                        <h3 className="font-heading text-xl text-[#1D1B2E]">
+                                        <h3 className="font-heading text-lg font-semibold text-[#1D1B2E]">
                                             {item.title}
                                         </h3>
 

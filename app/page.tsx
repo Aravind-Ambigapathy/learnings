@@ -21,8 +21,8 @@ export default function Home() {
        {/* <Header /> */}
       <main className="">
         <HeroSection />
-        <CastSourcePromise />
         <CastingWithRivexa />
+        <CastSourcePromise />
         <CastingProcess />
         <CoreCastingProcesses />
         <IndustriesWeServe />

@@ -1,5 +1,8 @@
+'use client'
 import Image from "next/image";
-import Link from "next/link";
+import CountUp from "./countUp";
+import { useState } from "react";
+// import Link from "next/link";
 
 const promises = [
     {
@@ -19,37 +22,61 @@ const promises = [
     },
 ];
 
-const processes = [
+// const processes = [
+//     {
+//         title: "Sand Casting",
+//         image: "/images/sand-cast.png",
+//         href: "https://www.rivexa.com/industrial-goods/casting/sand-casting",
+//     },
+//     {
+//         title: "Investment Casting",
+//         image: "/images/investment-casting.png",
+//         href: "https://www.rivexa.com/industrial-goods/casting/investment-casting",
+//     },
+//     {
+//         title: "Die Casting",
+//         image: "/images/die-casting.png",
+//         href: "https://www.rivexa.com/industrial-goods/casting/aluminium-die-casting",
+//     },
+// ];
+const stats = [
     {
-        title: "Sand Casting",
-        image: "/images/sand-cast.png",
-        href: "https://www.rivexa.com/industrial-goods/casting/sand-casting",
+        value: 900,
+        suffix: "+",
+        label: "Suppliers\nOnboarded",
     },
     {
-        title: "Investment Casting",
-        image: "/images/investment-casting.png",
-        href: "https://www.rivexa.com/industrial-goods/casting/investment-casting",
+        value: 7,
+        suffix: "+",
+        label: "Years average\nExport Experience",
     },
     {
-        title: "Die Casting",
-        image: "/images/die-casting.png",
-        href: "https://www.rivexa.com/industrial-goods/casting/aluminium-die-casting",
+        value: 88,
+        suffix: "%",
+        label: "RFQ Response Rate",
+    },
+    {
+        value: 8,
+        suffix: "",
+        label: "Countries Served",
+    },
+    {
+        value: 100,
+        suffix: "%",
+        label: "Verified Manufacturers",
     },
 ];
 
 export default function CastSourcePromise() {
+    const [isOpen, setIsOpen] = useState(false);
     return (
-        <section className="bg-[#F7F2FA] py-20">
+        <section className="bg-[#F7F2FA] py-8">
             <div className="mx-auto max-w-6xl px-6">
                 <div className="text-center">
-                    <h2 className="font-heading text-2xl font-semibold text-[#331C6F]">
-                        Upload your engineering drawings and let us handle the rest. Your trusted India sourcing partcner for casting products- delivered at
+                    <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
+                        Source Better with India
                     </h2>
 
-                    {/* <p className="mt-4 text-[#494551] font-semibold font-body">
-                        Upload your engineering drawings and let us handle the rest. Your
-                        trusted India sourcing partner for casting products delivered at
-                    </p> */}
                 </div>
 
                 {/* Promise Cards */}
@@ -79,40 +106,101 @@ export default function CastSourcePromise() {
                 </div>
 
                 <p className="mt-8 text-center text-lg font-body text-[#364153] font-semibold">
-                    End-to-end managed sourcing through verified manufacturers for
+                    Your trusted India sourcing partner for casting products
                 </p>
 
-                {/* Casting Types */}
-                <div className="mt-8 grid gap-6 md:grid-cols-3">
-                    {processes.map((item) => (
-                        <Link
-                            href={item.href}
-                            key={item.title}
-                            className="group overflow-hidden rounded-2xl border border-[#D8D0E5] bg-white"
-                        >
-                            <div className="relative h-56 overflow-hidden">
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
+                {/* Stats */}
+                <div className=" z-20 w-full flex justify-center my-8 px-6">
+                    <div className="rounded-3xl bg-white/30 z-20 w-full p-5 max-w-5xl">
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-5 w-full">
+                            {stats.map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="rounded-xl bg-white p-5 text-center shadow-sm hover:-translate-y-1 hover:shadow-2xl"
+                                >
+                                    <div className="font-heading text-3xl font-semibold text-[#330086]">
+                                        <CountUp
+                                            start={true}
+                                            end={item.value}
+                                            suffix={item.suffix}
+                                        />
+                                    </div>
 
-                            <div className="flex items-center justify-between p-5">
-                                <h3 className="font-heading text-lg font-semibold text-[#331C6F]">
-                                    {item.title}
-                                </h3>
-
-                                <img
-                                    src="/images/icons/right-arrow.svg"
-                                    alt="arrow"
-                                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                                />
-                            </div>
-                        </Link>
-                    ))}
+                                    <div className="mt-2 font-semibold whitespace-pre-line text-sm text-gray-700">
+                                        {item.label}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
+                    {/* CTA */}
+                    <div className="mt-8 overflow-hidden rounded-3xl">
+                        <div className="grid md:grid-cols-[1fr_260px]">
+                            <div className="bg-[#330086] px-5 py-4 flex justify-between gap-2 items-end">
+                                <div className="flex flex-col">
+                                    <h3 className="font-heading text-2xl text-white">
+                                        What is Casting?
+                                    </h3>
+                                    {
+                                        isOpen ? "" :
+                                            <p className="mt-3 text-white/80">
+                                                Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing...
+                                            </p>
+                                    }
+                                </div>
+                                <button
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className={`text-white shrink-0 rounded-full flex justify-center items-center transition-transform font-semibold cursor-pointer duration-300 underline`}
+                                >
+                                    {!isOpen ? "Learn more" : "Learn less"
+                                    }
+                                </button>
+                            </div>
+
+                            <div className="flex items-center justify-center bg-[#4F378B] p-6">
+                                <button
+                                    className="
+                  rounded-2xl
+                  bg-white
+                  px-12
+                  py-4
+                  font-semibold
+                  text-[#4500A8]
+                  transition-all
+                  duration-300
+                  hover:scale-105
+                "
+                                >
+                                    Contact Us
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen
+                                ? " opacity-100"
+                                : "max-h-0 opacity-0"
+                                }`}
+                        >
+                            <div className="grid gap-8 md:grid-cols-3 bg-[#F8F6FC] p-6 border border-[#E5DFF0]">
+                                <div className="col-span-2">
+                                    <p className="mt-4 text-[#494551]">
+                                        Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing complex geometries that are difficult or costly to achieve through machining. Common casting methods include sand casting, aluminum die casting, and investment casting, each suited to different production needs, materials, and precision levels. Casting supports a wide range of industries such as automotive, aerospace, machinery, and construction by enabling cost-effective mass production as well as customized components.
+                                    </p>
+                                </div>
+
+                                <div className="col-span-2 sm:col-span-1 overflow-hidden h-max rounded-2xl">
+                                    <Image
+                                        src="/images/casting-rivexa.png"
+                                        alt="Casting Process"
+                                        width={300}
+                                        height={200}
+                                        className="w-full h-60 md:h-52 object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </section>
     );

@@ -111,7 +111,7 @@ export default function CastingProcess() {
     return (
         <section
             ref={sectionRef}
-            className="bg-gradient-to-tl from-[#0F172BF2] via-[#4A3587E5] to-[#0F172BF2] py-14"
+            className="bg-gradient-to-tl from-[#1CB3ED] via-[#22BAA2] to-[#4A3587] py-14"
         >
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-sm font-semibold font-body uppercase tracking-[3px] text-white/70">
@@ -146,13 +146,19 @@ export default function CastingProcess() {
                     <div className="grid gap-10 lg:grid-cols-2">
                         {/* Image */}
                         <div>
-                            <div className="relative overflow-hidden rounded-3xl bg-white/10">
+                            <div
+                                className={`relative overflow-hidden rounded-3xl bg-white/10 transition-all duration-500 ${currentStep.methods ? "h-max" : "h-[350px] lg:h-[300px]"
+                                    }`}
+                            >
                                 <Image
                                     src={currentStep.image}
                                     alt={currentStep.title}
                                     width={700}
                                     height={500}
-                                    className="w-full object-center"
+                                    className={`w-full object-cover object-center transition-all duration-500 ${currentStep.methods
+                                            ? "h-auto"
+                                            : "h-[350px] lg:h-[420px]"
+                                        }`}
                                 />
                                 <div className="h-full w-full absolute top-0 left-0 bg-gradient-to-t from-black/30 to-transparent ">
                                     <div className="absolute left-5 top-5 rounded-full bg-[#D8C6FF] px-4 py-2 text-xs font-semibold text-[#331C6F]">

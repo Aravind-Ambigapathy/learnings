@@ -16,11 +16,11 @@ const capabilities = [
             "From miniature components to massive structural castings across all process types.",
         border: "border-[#D9C6FF]",
         text: "#4F378B",
-        icons:  <img src='/images/icons/comprehensive-casting/container.svg' />
+        icons: <img src='/images/icons/comprehensive-casting/container.svg' />
     },
     {
         title: "Dimensional Precision",
-        subtitle: "ISO 8062 CTS – CT12",
+        subtitle: "ISO 8062 CT5 – CT12 tolerance range",
         description:
             "International tolerance standards maintained across foundry partners.",
         border: "border-[#BFDDF2]",
@@ -29,7 +29,7 @@ const capabilities = [
     },
     {
         title: "Scalable Production",
-        subtitle: "Prototypes to High Volume",
+        subtitle: "From prototypes to high-volume manufacturing",
         description:
             "5 pieces to 50,000+ runs with consistent quality.",
         border: "border-[#C6E8D7]",
@@ -38,7 +38,7 @@ const capabilities = [
     },
     {
         title: "Integrated Tooling",
-        subtitle: "Pattern & Die Development",
+        subtitle: "Pattern making and die development support",
         description:
             "End-to-end support from pattern making to die development.",
         border: "border-[#F2D9A6]",
@@ -47,7 +47,7 @@ const capabilities = [
     },
     {
         title: "Quality Control",
-        subtitle: "Pre-Dispatch Inspection",
+        subtitle: "Dimensional and visual inspections before dispatch",
         description:
             "Dimensional checks, inspections and certifications before shipment.",
         border: "border-[#F4C5D4]",
@@ -56,7 +56,7 @@ const capabilities = [
     },
     {
         title: "Export Enablement",
-        subtitle: "Secure Packaging & Docs",
+        subtitle: "Secure packaging and complete documentation",
         description:
             "Export-ready packaging, customs documentation and logistics support.",
         border: "border-[#CBD5FF]",
@@ -80,26 +80,26 @@ function Capability() {
                             key={item.title}
                             className={`rounded-2xl border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${item.border}`}
                         >
-                            <div className="flex gap-3 border-b pb-4">
+                            <div className="flex gap-3">
                                 <section className={`h-14 w-14 flex justify-center items-center rounded`}
-                                  >
+                                >
                                     {item.icons}
                                 </section>
                                 <section>
-                                    <h3 className="font-heading text-xl font-semibold text-[#331C6F]">
+                                    <h3 className="font-heading text-xl font-semibold text-black">
                                         {item.title}
                                     </h3>
 
-                                    <p className="mt-1 font-medium "
+                                    <p className="mt-1 font-semibold "
                                         style={{ color: item.text }}>
                                         {item.subtitle}
                                     </p>
                                 </section>
                             </div>
 
-                            <p className="mt-4 text-sm text-gray-600">
+                            {/* <p className="mt-4 text-sm text-gray-600">
                                 {item.description}
-                            </p>
+                            </p> */}
                         </div>
                     ))}
                 </div>

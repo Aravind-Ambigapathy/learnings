@@ -1,44 +1,71 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Arrow from "./icons/arrow";
 
 const features = [
     {
-        icon: <img src='/images/icons/casting-rivexa/container.svg' />,
+        icon: <img src="/images/icons/casting-rivexa/container.svg" alt="" />,
         title: "Customized Manufacturing",
         description:
-            "Customized manufacturing through technically capable foundries",
-        bg: "bg-pink-100",
+            "Through technically capable foundries matched to your specifications",
     },
     {
-        icon:  <img src='/images/icons/casting-rivexa/container-1.svg' />,
+        icon: <img src="/images/icons/casting-rivexa/container-1.svg" alt="" />,
         title: "Competitive Price Discovery",
         description:
-            "Competitive price discovery through multiple tendering and negotiation",
-        bg: "bg-green-100",
+            "Multiple tendering and negotiation for optimal cost outcomes",
     },
     {
-        icon:  <img src='/images/icons/casting-rivexa/container-2.svg' />,
+        icon: <img src="/images/icons/casting-rivexa/container-2.svg" alt="" />,
         title: "Inspection Facilitation",
         description:
-            "Inspection facilitation for improved quality control and compliance",
-        bg: "bg-blue-100",
+            "Improved quality control and compliance at every production stage",
     },
     {
-        icon:  <img src='/images/icons/casting-rivexa/container-3.svg' />,
+        icon: <img src="/images/icons/casting-rivexa/container-3.svg" alt="" />,
         title: "Export-Ready Supply Chains",
         description:
-            "Export-ready supply chains with logistics and documentation support",
-        bg: "bg-orange-100",
+            "End-to-end logistics and documentation support for global delivery",
     },
 ];
 
+const castingTypes = {
+    sand: {
+        label: "Sand Casting",
+        description:
+            "Best for larger, complex geometries with lower tooling cost",
+    },
+    die: {
+        label: "Die Casting",
+        description:
+            "Best for high-volume production with excellent dimensional accuracy",
+    },
+    investment: {
+        label: "Investment Casting",
+        description:
+            "Ideal for intricate designs requiring superior surface finish and precision",
+    },
+};
+
 export default function CastingWithRivexa() {
     const sectionRef = useRef<HTMLDivElement>(null);
+
     const [isVisible, setIsVisible] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+    const [selectedCasting, setSelectedCasting] =
+        useState<keyof typeof castingTypes>("sand");
+
+    const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+
+    const [formData, setFormData] = useState({
+        businessName: "",
+        fullName: "",
+        email: "",
+        countryCode: "+1",
+        phone: "",
+    });
+
+    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -59,148 +86,323 @@ export default function CastingWithRivexa() {
 
         return () => observer.disconnect();
     }, []);
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+
+        if (errors[name]) {
+            setErrors((prev) => ({
+                ...prev,
+                [name]: "",
+            }));
+        }
+    };
+
+    const handleFileChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const file = e.target.files?.[0];
+
+        if (!file) return;
+
+        const allowedExtensions = [
+            "pdf",
+            "dwg",
+            "dxf",
+            "step",
+            "iges",
+            "stl",
+        ];
+
+        const extension = file.name
+            .split(".")
+            .pop()
+            ?.toLowerCase();
+
+        if (!extension || !allowedExtensions.includes(extension)) {
+            alert(
+                "Only PDF, DWG, DXF, STEP, IGES and STL files are allowed."
+            );
+            return;
+        }
+
+        setUploadedFile(file);
+    };
+
+    const validateForm = () => {
+        const newErrors: Record<string, string> = {};
+
+        if (!formData.businessName.trim()) {
+            newErrors.businessName = "Business name is required";
+        }
+
+        if (!formData.fullName.trim()) {
+            newErrors.fullName = "Full name is required";
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = "Please enter a valid email";
+        }
+
+        if (!formData.phone.trim()) {
+            newErrors.phone = "Phone number is required";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = async () => {
+        if (!validateForm()) return;
+
+        try {
+            setIsSubmitting(true);
+
+            const payload = new FormData();
+
+            payload.append("castingType", selectedCasting);
+            payload.append("businessName", formData.businessName);
+            payload.append("fullName", formData.fullName);
+            payload.append("email", formData.email);
+            payload.append("countryCode", formData.countryCode);
+            payload.append("phone", formData.phone);
+
+            if (uploadedFile) {
+                payload.append("drawing", uploadedFile);
+            }
+
+            // Replace with your API
+            await fetch("/api/enquiry", {
+                method: "POST",
+                body: payload,
+            });
+
+            alert("Enquiry submitted successfully!");
+
+            setFormData({
+                businessName: "",
+                fullName: "",
+                email: "",
+                countryCode: "+1",
+                phone: "",
+            });
+
+            setUploadedFile(null);
+        } catch (error) {
+            console.error(error);
+            alert("Failed to submit enquiry.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <section
             ref={sectionRef}
-            className="py-14 bg-white overflow-hidden"
+            className="py-16 bg-[#F5F1FA]"
         >
-            <div className="mx-auto max-w-6xl px-6">
-                <div
-                    className={`transition-all duration-700 ease-out ${isVisible
-                        ? "translate-y-0 opacity-100"
-                        : "-translate-y-10 opacity-0"
+            <div className="max-w-7xl mx-auto px-6">
+                <h2
+                    className={`text-3xl font-semibold text-[#2B1464] transition-all duration-700 ${isVisible
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-5"
                         }`}
                 >
-                    <h2 className="font-heading text-5xl font-semibold text-[#331C6F]">
-                        Casting with rivexa
-                    </h2>
-                    <p className="mt-4 text-[#494551] font-body font-semibold">
-                        Connect to verified Indian manufacturers through rivexa{`'`}s managed
-                        sourcing ecosystem, enabling
-                    </p>
-                </div>
-                <div className="grid gap-12 mt-10 lg:grid-cols-2 lg:items-center">
-                    {/* Left */}
-                    <div>
+                    Upload Your Engineering Drawing and Source from
+                    physically verified Indian manufacturers through
+                    rivexa&apos;s managed sourcing ecosystem, enabling
+                </h2>
 
-                        <div className="space-y-4">
-                            {features.map((feature, index) => (
-                                <div
-                                    key={feature.title}
-                                    className={`flex gap-4 rounded-2xl border border-[#E5DFF0] p-5 hover:-translate-y-1 hover:shadow-md
-                                    transition-all duration-700 ease-out
-                                    ${isVisible
-                                            ? "translate-y-0 opacity-100"
-                                            : "-translate-y-12 opacity-0"
+                <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 mt-12">
+                    {/* FORM */}
+                    <div className="bg-white rounded-3xl p-8 border border-[#E8E2F2] shadow-sm">
+                        <label className="text-xs font-semibold tracking-wider text-[#7B61B3] uppercase">
+                            Select Casting Type
+                        </label>
+
+                        <div className="flex flex-wrap gap-3 mt-3">
+                            {Object.entries(castingTypes).map(([key, item]) => (
+                                <button
+                                    key={key}
+                                    type="button"
+                                    onClick={() =>
+                                        setSelectedCasting(
+                                            key as keyof typeof castingTypes
+                                        )
+                                    }
+                                    className={`px-5 py-3 rounded-xl border transition-all ${selectedCasting === key
+                                            ? "border-[#F4B15F] bg-[#FFF4E7] text-[#D87D13]"
+                                            : "border-[#E3DDF0] text-[#8B84A5]"
                                         }`}
-                                    style={{
-                                        transitionDelay: `${200 + index * 120}ms`,
-                                    }}
                                 >
-                                    <div
-                                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl`}
-                                    >
-                                        {feature?.icon}
-                                    </div>
-
-                                    <div>
-                                        <h3 className="font-heading text-lg font-semibold text-[#331C6F]">
-                                            {feature.title}
-                                        </h3>
-
-                                        <p className="mt-1 font-body font-lg text-[#6B7280]">
-                                            {feature.description}
-                                        </p>
-                                    </div>
-                                </div>
+                                    ● {item.label}
+                                </button>
                             ))}
                         </div>
-                    </div>
-                    {/* Right */}
-                    <div
-                        className={`transition-all duration-1000 ease-out ${isVisible
-                            ? "translate-y-0 opacity-100"
-                            : "-translate-y-16 opacity-0"
-                            }`}
-                        style={{ transitionDelay: "300ms" }}
-                    >
-                        <div className="relative overflow-hidden rounded-2xl">
-                            <Image
-                                src="/images/casting-rivexa.png"
-                                alt="Casting Process"
-                                width={800}
-                                height={700}
-                                className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
-                            />
-                        </div>
-                    </div>
-                </div>
 
-                {/* CTA */}
-                <div className="mt-8 overflow-hidden rounded-3xl">
-                    <div className="grid md:grid-cols-[1fr_260px]">
-                        <div className="bg-[#330086] px-5 py-4 flex justify-between gap-2 items-end">
-                            <div className="flex flex-col">
-                                <h3 className="font-heading text-2xl text-white">
-                                    What is Casting?
-                                </h3>
-                                {
-                                    isOpen ? "" :
-                                        <p className="mt-3 text-white/80">
-                                            Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing...
-                                        </p>
-                                }
-                            </div>
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className={`text-white shrink-0 rounded-full flex justify-center items-center transition-transform font-semibold cursor-pointer duration-300 underline`}
-                            >
-                                {!isOpen ? "Learn more" : "Learn less"
-                                }
-                            </button>
-                        </div>
+                        <p className="mt-3 text-sm text-[#D87D13]">
+                            {castingTypes[selectedCasting].description}
+                        </p>
 
-                        <div className="flex items-center justify-center bg-[#4F378B] p-6">
-                            <button
-                                className="
-                  rounded-2xl
-                  bg-white
-                  px-12
-                  py-4
-                  font-semibold
-                  text-[#4500A8]
-                  transition-all
-                  duration-300
-                  hover:scale-105
-                "
-                            >
-                                Contact Us
-                            </button>
-                        </div>
-                    </div>
-                    <div
-                        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen
-                            ? " opacity-100"
-                            : "max-h-0 opacity-0"
-                            }`}
-                    >
-                        <div className="grid gap-8 md:grid-cols-3 bg-[#F8F6FC] p-6 border border-[#E5DFF0]">
-                            <div className="col-span-2">
-                                <p className="mt-4 text-[#494551]">
-                                    Casting is a manufacturing process in which molten metal is poured into a mold to create components of desired shapes and sizes. It is widely used for producing complex geometries that are difficult or costly to achieve through machining. Common casting methods include sand casting, aluminum die casting, and investment casting, each suited to different production needs, materials, and precision levels. Casting supports a wide range of industries such as automotive, aerospace, machinery, and construction by enabling cost-effective mass production as well as customized components.
-                                </p>
-                            </div>
+                        {/* Upload */}
+                        <div className="mt-8">
+                            <label className="text-xs font-semibold tracking-wider text-[#7B61B3] uppercase">
+                                Upload Drawing
+                            </label>
 
-                            <div className="col-span-2 sm:col-span-1 overflow-hidden h-max rounded-2xl">
-                                <Image
-                                    src="/images/casting-rivexa.png"
-                                    alt="Casting Process"
-                                    width={300}
-                                    height={200}
-                                    className="w-full h-60 md:h-52 object-cover"
+                            <label className="cursor-pointer block">
+                                <input
+                                    type="file"
+                                    className="hidden"
+                                    accept=".pdf,.dwg,.dxf,.step,.iges,.stl"
+                                    onChange={handleFileChange}
                                 />
+
+                                <div className="mt-3 border-2 border-dashed border-[#D9CFF0] rounded-2xl p-12 text-center hover:bg-[#FAF8FF] transition-colors">
+                                    <div className="w-12 h-12 mx-auto rounded-xl bg-[#F2ECFC] flex items-center justify-center text-xl">
+                                        ↑
+                                    </div>
+
+                                    <p className="mt-4 font-medium text-[#2B1464]">
+                                        Drag & Drop or Browse
+                                    </p>
+
+                                    <p className="text-sm text-gray-500 mt-1">
+                                        PDF, DWG, DXF, STEP, IGES, STL
+                                    </p>
+
+                                    {uploadedFile && (
+                                        <p className="mt-3 text-sm text-green-600 font-medium">
+                                            ✓ {uploadedFile.name}
+                                        </p>
+                                    )}
+                                </div>
+                            </label>
+                        </div>
+
+                        {/* Inputs */}
+                        <div className="grid md:grid-cols-2 gap-4 mt-6">
+                            <div>
+                                <input
+                                    name="businessName"
+                                    value={formData.businessName}
+                                    onChange={handleChange}
+                                    placeholder="Business name*"
+                                    className="w-full h-12 rounded-xl border border-[#E3DDF0] px-4"
+                                />
+                                {errors.businessName && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.businessName}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <input
+                                    name="fullName"
+                                    value={formData.fullName}
+                                    onChange={handleChange}
+                                    placeholder="Full name*"
+                                    className="w-full h-12 rounded-xl border border-[#E3DDF0] px-4"
+                                />
+                                {errors.fullName && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.fullName}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <input
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="Email ID*"
+                                    className="w-full h-12 rounded-xl border border-[#E3DDF0] px-4"
+                                />
+                                {errors.email && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.email}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <div className="flex gap-3">
+                                    <select
+                                        name="countryCode"
+                                        value={formData.countryCode}
+                                        onChange={handleChange}
+                                        className="h-12 rounded-xl border border-[#E3DDF0] px-3"
+                                    >
+                                        <option value="+1">🇺🇸 +1</option>
+                                        <option value="+91">🇮🇳 +91</option>
+                                    </select>
+
+                                    <input
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="Phone number*"
+                                        className="flex-1 h-12 rounded-xl border border-[#E3DDF0] px-4"
+                                    />
+                                </div>
+
+                                {errors.phone && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.phone}
+                                    </p>
+                                )}
                             </div>
                         </div>
+
+                        <button
+                            onClick={handleSubmit}
+                            disabled={isSubmitting}
+                            className="mt-5 w-full h-12 rounded-xl bg-[#3F008D] text-white font-semibold disabled:opacity-50"
+                        >
+                            {isSubmitting
+                                ? "Submitting..."
+                                : "Send Enquiry →"}
+                        </button>
+
+                        <p className="text-center text-sm text-[#8B84A5] mt-4">
+                            No commitment required · Response within 24 hours
+                        </p>
+                    </div>
+
+                    {/* FEATURES */}
+                    <div className="space-y-4">
+                        {features.map((feature) => (
+                            <div
+                                key={feature.title}
+                                className="bg-white rounded-2xl border border-[#E8E2F2] p-6 flex gap-4"
+                            >
+                                <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#F6F3FB]">
+                                    {feature.icon}
+                                </div>
+
+                                <div>
+                                    <h3 className="font-semibold text-lg text-[#2B1464]">
+                                        {feature.title}
+                                    </h3>
+
+                                    <p className="text-[#6B7280] mt-1">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
