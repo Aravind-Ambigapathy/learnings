@@ -147,7 +147,7 @@ export default function CastingProcess() {
                         {/* Image */}
                         <div>
                             <div
-                                className={`relative overflow-hidden rounded-3xl bg-white/10 transition-all duration-500 ${currentStep.methods ? "h-max" : "h-[350px] lg:h-[300px]"
+                                className={`relative overflow-hidden rounded-3xl bg-white/10 transition-all duration-500 ${currentStep.methods ? "h-max" : "h-[350px] lg:h-[250px]"
                                     }`}
                             >
                                 <Image

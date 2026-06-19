@@ -7,7 +7,7 @@ const processes = [
   {
     id: "sand",
     name: "Sand Casting",
-    image: "/images/core-casting.png",
+    image: "/images/castingprocess1.png",
     bestFor: "Medium to very large components",
     capability: "Weight up to 3000kg, wide material range",
     description:
@@ -16,7 +16,7 @@ const processes = [
   {
     id: "die",
     name: "Die Casting",
-    image: "/images/core-casting2.png",
+    image: "/images/castingprocess2.png",
     bestFor: "High-volume aluminum or zinc components",
     capability: "Excellent repeat ability and thin wall capability up to 30 kg",
     description:
@@ -25,7 +25,7 @@ const processes = [
   {
     id: "investment",
     name: "Investment Casting",
-    image: "/images/core-casting3.png",
+    image: "/images/castingprocess3.png",
     bestFor: "Complex geometry with tight tolerance",
     capability: "Superior surface finish and dimensional accuracy up to 50kg",
     description:

@@ -214,8 +214,8 @@ export default function CastingWithRivexa() {
             <div className="max-w-7xl mx-auto px-6">
                 <h2
                     className={`text-3xl font-semibold text-[#2B1464] transition-all duration-700 ${isVisible
-                            ? "opacity-100 translate-y-0"
-                            : "opacity-0 translate-y-5"
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-5"
                         }`}
                 >
                     Upload Your Engineering Drawing and Source from
@@ -223,7 +223,7 @@ export default function CastingWithRivexa() {
                     rivexa&apos;s managed sourcing ecosystem, enabling
                 </h2>
 
-                <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 mt-12">
+                <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 mt-12 relative">
                     {/* FORM */}
                     <div className="bg-white rounded-3xl p-8 border border-[#E8E2F2] shadow-sm">
                         <label className="text-xs font-semibold tracking-wider text-[#7B61B3] uppercase">
@@ -241,8 +241,8 @@ export default function CastingWithRivexa() {
                                         )
                                     }
                                     className={`px-5 py-3 rounded-xl border transition-all ${selectedCasting === key
-                                            ? "border-[#F4B15F] bg-[#FFF4E7] text-[#D87D13]"
-                                            : "border-[#E3DDF0] text-[#8B84A5]"
+                                        ? "border-[#F4B15F] bg-[#FFF4E7] text-[#D87D13]"
+                                        : "border-[#E3DDF0] text-[#8B84A5]"
                                         }`}
                                 >
                                     ● {item.label}
@@ -382,11 +382,19 @@ export default function CastingWithRivexa() {
                     </div>
 
                     {/* FEATURES */}
-                    <div className="space-y-4">
-                        {features.map((feature) => (
+                    <div className="sticky top-24 space-y-4">
+                        {features.map((feature, index) => (
                             <div
                                 key={feature.title}
-                                className="bg-white rounded-2xl border border-[#E8E2F2] p-6 flex gap-4"
+                                className={`bg-white rounded-2xl border border-[#E8E2F2] p-6 flex gap-4
+transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
+${isVisible
+                                        ? "translate-y-0 opacity-100"
+                                        : "translate-y-24 opacity-0"
+                                    }`}
+                                style={{
+                                    transitionDelay: `${index * 200}ms`,
+                                }}
                             >
                                 <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#F6F3FB]">
                                     {feature.icon}
