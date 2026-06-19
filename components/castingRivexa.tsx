@@ -396,7 +396,7 @@ ${isVisible
                                     transitionDelay: `${index * 200}ms`,
                                 }}
                             >
-                                <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#F6F3FB]">
+                                <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl">
                                     {feature.icon}
                                 </div>
 
