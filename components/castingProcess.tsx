@@ -39,7 +39,7 @@ export default function CoreCastingProcesses() {
   const process = processes[activeTab];
 
   return (
-    <section className="bg-white py-14">
+    <section className="bg-white py-14 mb-10">
       <div className="mx-auto max-w-7xl px-6">
         {/* Title */}
         <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
@@ -67,7 +67,7 @@ export default function CoreCastingProcesses() {
 
         {/* Process Section */}
         <div
-          className={`mt-6 grid gap-4 transition-all  ${showFullDescription
+          className={`my-6 grid gap-4 transition-all  ${showFullDescription
             ? "lg:grid-cols-[500px_1fr]"
             : "lg:grid-cols-[320px_1fr]"
             }`}
@@ -137,7 +137,7 @@ export default function CoreCastingProcesses() {
         </div>
 
         {/* Comparison Table */}
-        <div className="mt-8">
+        <div className="mt-16">
           <div className="text-center">
             <h2 className="font-heading text-4xl font-semibold text-[#331C6F]">
               Casting Process Comparison
@@ -148,7 +148,7 @@ export default function CoreCastingProcesses() {
             </p>
           </div>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-[#D8D0E5] bg-white">
+          <div className="mt-8 overflow-scroll rounded-2xl border border-[#D8D0E5] bg-white">
             <table className="w-full">
               <thead>
                 <tr className="bg-[#ECE5FB]">

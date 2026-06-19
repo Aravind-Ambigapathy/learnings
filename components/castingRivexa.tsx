@@ -211,9 +211,9 @@ export default function CastingWithRivexa() {
             ref={sectionRef}
             className="py-16 bg-[#F5F1FA]"
         >
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto ">
                 <h2
-                    className={`text-3xl font-semibold text-[#2B1464] transition-all duration-700 ${isVisible
+                    className={` px-6 text-2xl md:text-3xl font-semibold text-[#2B1464] transition-all duration-700 ${isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-5"
                         }`}
@@ -225,7 +225,7 @@ export default function CastingWithRivexa() {
 
                 <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 mt-12 relative">
                     {/* FORM */}
-                    <div className="bg-white rounded-3xl p-8 border border-[#E8E2F2] shadow-sm">
+                    <div className="bg-white rounded-3xl p-8 lg:ml-6 border border-[#E8E2F2] shadow-sm">
                         <label className="text-xs font-semibold tracking-wider text-[#7B61B3] uppercase">
                             Select Casting Type
                         </label>
@@ -382,12 +382,12 @@ export default function CastingWithRivexa() {
                     </div>
 
                     {/* FEATURES */}
-                    <div className="sticky top-24 space-y-4">
+                    <div className="sticky top-24 px-3 md:px-6 space-y-4 ">
                         {features.map((feature, index) => (
                             <div
                                 key={feature.title}
-                                className={`bg-white rounded-2xl border border-[#E8E2F2] p-6 flex gap-4
-transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                className={`bg-white rounded-2xl hover:-translate-y-1 border border-[#E8E2F2] p-6 flex gap-4
+transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)]
 ${isVisible
                                         ? "translate-y-0 opacity-100"
                                         : "translate-y-24 opacity-0"

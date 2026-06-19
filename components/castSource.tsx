@@ -110,7 +110,7 @@ export default function CastSourcePromise() {
                 </p>
 
                 {/* Stats */}
-                <div className=" z-20 w-full flex justify-center my-8 px-6">
+                <div className=" z-20 w-full flex justify-center my-8 md:px-6">
                     <div className="rounded-3xl bg-white/30 z-20 w-full p-5 max-w-5xl">
                         <div className="grid grid-cols-2 gap-4 md:grid-cols-5 w-full">
                             {stats.map((item) => (

@@ -111,7 +111,7 @@ export default function CastingProcess() {
     return (
         <section
             ref={sectionRef}
-            className="bg-gradient-to-tl from-[#1CB3ED] via-[#22BAA2] to-[#4A3587] py-14"
+            className="bg-gradient-to-tl from-[#1CB3ED] via-[#22BAA2] to-[#4A3587] py-14 mb-10"
         >
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-sm font-semibold font-body uppercase tracking-[3px] text-white/70">

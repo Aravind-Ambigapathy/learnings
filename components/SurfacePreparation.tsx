@@ -169,7 +169,7 @@ export default function SurfacePreparation() {
           "
                             >
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-heading text-lg text-[#1D1B2E]">
+                                    <h3 className="font-heading font-semibold text-lg text-[#1D1B2E]">
                                         {item.title}
                                     </h3>
 
