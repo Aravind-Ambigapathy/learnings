@@ -1,71 +1,54 @@
 import Image from "next/image";
-import CountUp from "@/components/countUp";
 
-export default function HeroSection() {
- 
+interface HeroSectionProps {
+  image: string;
+  type?: string;
+}
 
-    return (
-        <section className="relative overflow-hidden">
-            {/* Background Image */}
-            <div className="relative pb-6 h-max md:h-[500px]">
-                <Image
-                    src="/images/banner.png"
-                    alt="Casting Solutions"
-                    fill
-                    priority
-                    className="object-cover"
-                />
+export default function HeroSection({
+  image,
+  type = "casting",
+}: HeroSectionProps) {
+  const serviceName =
+    type.charAt(0).toUpperCase() + type.slice(1);
 
-                {/* Overlay */}
-                {/* <div className="absolute inset-0 bg-black/45" /> */}
+  return (
+    <section className="relative overflow-hidden">
+      <div className="relative min-h-[450px] md:min-h-[550px]">
+        {/* Background Image */}
+        <Image
+          src={image}
+          alt={`${serviceName} Solutions`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-                {/* Content */}
-                <div className="relative z-10 mx-auto px-6 lg:px-12  pt-16 lg:pt-24 bg-black/5">
-                    <div className=" w-full  flex flex-col items-center">
-                        <h1 className="font-heading text-center text-white text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
-                            rivexa Casting Solutions –
-                            Your Global Sourcing
-                            <br />
-                            Platform
-                        </h1>
+        {/* Overlay */}
+        {/* <div className="absolute inset-0 bg-black/30" /> */}
 
-                        <p className="mt-5 text-[#E8C21D] text-center text-2xl font-body md:text-4xl font-semibold leading-snug">
-                            One drawing. One platform.
-                            Multiple casting processes.
-                        </p>
+        {/* Content */}
+        <div className="relative z-10 mx-auto flex min-h-[450px] md:min-h-[550px] max-w-7xl items-center justify-center px-6 lg:px-12">
+          <div className="flex flex-col items-center text-center">
+            <h1 className="font-heading text-white text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
+              rivexa {serviceName} Solutions – Your Global Sourcing
+              <br />
+              Platform
+            </h1>
 
-                        <button className="mt-8 rounded-lg bg-[#330086] hover:bg-[#3e1089] px-5 py-3 text-white font-medium transition-all duration-100 hover:scale-105 ">
-                            Get Free Quote Today!
-                        </button>
-                    </div>
-                </div>
+            <p className="mt-5 text-[#E8C21D] text-xl md:text-3xl lg:text-4xl font-semibold leading-snug">
+              One drawing. One platform.
+              <br />
+              Multiple {type} processes.
+            </p>
 
-                {/* Stats */}
-                {/* <div className=" z-20 flex justify-center my-8 px-6">
-                    <div className="rounded-3xl bg-white/30 z-20 w-full p-5 max-w-5xl">
-                        <div className="grid grid-cols-2 gap-4 md:grid-cols-5 w-full">
-                            {stats.map((item) => (
-                                <div
-                                    key={item.label}
-                                    className="rounded-xl bg-white p-5 text-center shadow-sm hover:-translate-y-1 hover:shadow-2xl"
-                                >
-                                    <div className="font-heading text-3xl font-semibold text-[#330086]">
-                                        <CountUp
-                                            start={true}
-                                            end={item.value}
-                                            suffix={item.suffix}
-                                        />
-                                    </div>
-
-                                    <div className="mt-2 whitespace-pre-line text-sm text-gray-700">
-                                        {item.label}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div> */}
-            </div>
-        </section>
-    );
+            <button className="mt-8 rounded-lg bg-[#330086] px-6 py-3 text-white font-medium transition-all duration-300 hover:bg-[#3e1089] hover:scale-105">
+              Get Free Quote Today!
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

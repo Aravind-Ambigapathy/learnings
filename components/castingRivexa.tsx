@@ -2,57 +2,38 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const features = [
-    {
-        icon: <img src="/images/icons/casting-rivexa/container.svg" alt="" />,
-        title: "Customized Manufacturing",
-        description:
-            "Through technically capable foundries matched to your specifications",
-    },
-    {
-        icon: <img src="/images/icons/casting-rivexa/container-1.svg" alt="" />,
-        title: "Competitive Price Discovery",
-        description:
-            "Multiple tendering and negotiation for optimal cost outcomes",
-    },
-    {
-        icon: <img src="/images/icons/casting-rivexa/container-2.svg" alt="" />,
-        title: "Inspection Facilitation",
-        description:
-            "Improved quality control and compliance at every production stage",
-    },
-    {
-        icon: <img src="/images/icons/casting-rivexa/container-3.svg" alt="" />,
-        title: "Export-Ready Supply Chains",
-        description:
-            "End-to-end logistics and documentation support for global delivery",
-    },
-];
 
-const castingTypes = {
-    sand: {
-        label: "Sand Casting",
-        description:
-            "Best for larger, complex geometries with lower tooling cost",
-    },
-    die: {
-        label: "Die Casting",
-        description:
-            "Best for high-volume production with excellent dimensional accuracy",
-    },
-    investment: {
-        label: "Investment Casting",
-        description:
-            "Ideal for intricate designs requiring superior surface finish and precision",
-    },
-};
+interface FormType {
+    id: string;
+    label: string;
+    description: string;
+}
 
-export default function CastingWithRivexa() {
+interface Feature {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+interface CastingWithRivexaProps {
+    data: {
+        title: string;
+        types: FormType[];
+        features: Feature[];
+    };
+}
+export default function CastingWithRivexa({
+  data,
+}: CastingWithRivexaProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const [selectedType, setSelectedType] = useState(
+        data.types[0].id
+    );
 
+    const selectedTypeData =
+        data.types.find((t) => t.id === selectedType) ??
+        data.types[0];
     const [isVisible, setIsVisible] = useState(false);
-    const [selectedCasting, setSelectedCasting] =
-        useState<keyof typeof castingTypes>("sand");
 
     const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
@@ -170,7 +151,7 @@ export default function CastingWithRivexa() {
 
             const payload = new FormData();
 
-            payload.append("castingType", selectedCasting);
+            // payload.append("castingType", selectedCasting);
             payload.append("businessName", formData.businessName);
             payload.append("fullName", formData.fullName);
             payload.append("email", formData.email);
@@ -231,27 +212,23 @@ export default function CastingWithRivexa() {
                         </label>
 
                         <div className="flex flex-wrap gap-3 mt-3">
-                            {Object.entries(castingTypes).map(([key, item]) => (
+                            {data.types.map((type) => (
                                 <button
-                                    key={key}
+                                    key={type.id}
                                     type="button"
-                                    onClick={() =>
-                                        setSelectedCasting(
-                                            key as keyof typeof castingTypes
-                                        )
-                                    }
-                                    className={`px-5 py-3 rounded-xl border transition-all ${selectedCasting === key
+                                    onClick={() => setSelectedType(type.id)}
+                                    className={`px-5 py-3 rounded-xl border transition-all ${selectedType === type.id
                                         ? "border-[#F4B15F] bg-[#FFF4E7] text-[#D87D13]"
                                         : "border-[#E3DDF0] text-[#8B84A5]"
                                         }`}
                                 >
-                                    ● {item.label}
+                                    ● {type.label}
                                 </button>
                             ))}
                         </div>
 
                         <p className="mt-3 text-sm text-[#D87D13]">
-                            {castingTypes[selectedCasting].description}
+                            {selectedTypeData.description}
                         </p>
 
                         {/* Upload */}
@@ -383,7 +360,7 @@ export default function CastingWithRivexa() {
 
                     {/* FEATURES */}
                     <div className="sticky top-24 px-3 md:px-6 space-y-4 ">
-                        {features.map((feature, index) => (
+                        {data.features.map((feature, index) => (
                             <div
                                 key={feature.title}
                                 className={`bg-white rounded-2xl hover:-translate-y-1 border border-[#E8E2F2] p-6 flex gap-4
@@ -397,7 +374,11 @@ ${isVisible
                                 }}
                             >
                                 <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl">
-                                    {feature.icon}
+                                    <img
+                                        src={feature.icon}
+                                        alt={feature.title}
+                                        className="w-10 h-10"
+                                    />
                                 </div>
 
                                 <div>

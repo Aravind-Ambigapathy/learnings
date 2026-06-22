@@ -1,72 +1,43 @@
-import AssemblyIcon from "./icons/assembly";
-import HeatTreatmentIcon from "./icons/heatTreatment";
-import ImpregnationIcon from "./icons/impregnation";
-import MachiningIcon from "./icons/machining";
-import PackagingIcon from "./icons/packaging";
+"use client";
 
+interface Service {
+  title: string;
+  description: string;
+  icon: string;
+  accent: string;
+}
 
-const services = [
-  {
-    title: "Machining",
-    description:
-      "CNC turning, milling, and drilling for precision finishing",
-    icon: <img src='/images/icons/beyond-casting/container.svg' />,
-    accent: "#8B7DDB",
-  },
-  {
-    title: "Heat Treatment",
-    description:
-      "Annealing, normalizing, and quenching for enhanced performance",
-    icon: <img src='/images/icons/beyond-casting/container-1.svg' />,
-    accent: "#F59E0B",
-  },
-  {
-    title: "Impregnation",
-    description:
-      "Leak-proofing solutions for porous castings",
-    icon: <img src='/images/icons/beyond-casting/container-2.svg' />,
-    accent: "#14B8A6",
-  },
-  {
-    title: "Assembly",
-    description:
-      "Partial to full assembly support for ready-to-use delivery",
-    icon: <img src='/images/icons/beyond-casting/container-3.svg' />,
-    accent: "#2563EB",
-  },
-  {
-    title: "Packaging",
-    description:
-      "Export-ready packing for safe global transit",
-    icon: <img src='/images/icons/beyond-casting/container-4.svg' />,
-    accent: "#A855F7",
-  },
-];
+interface ValueAddedServicesProps {
+  data: {
+    title: string;
+    subtitle: string;
+    services: Service[];
+    ctaTitle: string;
+    ctaDescription: string;
+    buttonText: string;
+  };
+}
 
-export default function ValueAddedServices() {
+export default function ValueAddedServices({
+  data,
+}: ValueAddedServicesProps) {
   return (
     <section className="bg-gradient-to-r from-[#5B49A8] via-[#428DB0] to-[#27C6C6] py-14">
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="font-heading text-4xl font-semibold leading-tight text-white">
-            Beyond casting: rivexa ensures
-            <br />
-            integrated post-processing operations
+            {data.title}
           </h2>
 
-          <p className="mt-4 font-body text-white/90 leading-5">
-            At rivexa, our capabilities go beyond casting — delivering
-            customized components through a complete range of value-added
-            post-processing services. This integrated approach helps reduce
-            vendor dependency, shorten lead times, and simplify your supply
-            chain.
+          <p className="mt-4 font-body text-white/90 leading-6">
+            {data.subtitle}
           </p>
         </div>
 
         {/* Cards */}
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {data.services.map((service) => (
             <div
               key={service.title}
               className="
@@ -80,11 +51,15 @@ export default function ValueAddedServices() {
                 hover:shadow-2xl
               "
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white">
-                {service.icon}
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl ">
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="h-14 w-14 object-contain"
+                />
               </div>
 
-              <h3 className="mt-3 font-heading text-2xl font-semibold text-white">
+              <h3 className="mt-4 font-heading text-2xl font-semibold text-white">
                 {service.title}
               </h3>
 
@@ -93,7 +68,7 @@ export default function ValueAddedServices() {
               </p>
 
               <div
-                className="mt-3 h-1 w-10 rounded-full transition-all duration-300 group-hover:w-16"
+                className="mt-4 h-1 w-10 rounded-full transition-all duration-300 group-hover:w-16"
                 style={{
                   backgroundColor: service.accent,
                 }}
@@ -101,7 +76,7 @@ export default function ValueAddedServices() {
             </div>
           ))}
 
-          {/* CTA Card */}
+          {/* CTA */}
           <div
             className="
               rounded-3xl
@@ -113,20 +88,18 @@ export default function ValueAddedServices() {
             "
           >
             <div>
-              <h3 className="font-heading text-xl font-semibold text-white">
-                Ready to simplify your supply chain?
+              <h3 className="font-heading text-2xl font-semibold text-white">
+                {data.ctaTitle}
               </h3>
 
-              <p className="mt-2 font-body text-sm text-white/80">
-                Share your requirements and get a tailored
-                post-processing quote from verified Indian
-                manufacturers.
+              <p className="mt-3 text-white/80">
+                {data.ctaDescription}
               </p>
             </div>
 
             <button
               className="
-                mt-4
+                mt-6
                 rounded-2xl
                 bg-white
                 py-3
@@ -137,7 +110,7 @@ export default function ValueAddedServices() {
                 hover:scale-105
               "
             >
-              Send Enquiry
+              {data.buttonText}
             </button>
           </div>
         </div>

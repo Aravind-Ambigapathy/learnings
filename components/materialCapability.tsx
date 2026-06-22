@@ -5,92 +5,27 @@ import CastIron from "./icons/cast-iron";
 import Steel from "./icons/steel";
 import Alloys from "./icons/alloys";
 
-const materials = [
-    {
-        name: "Cast Iron",
-        count: 5,
-        color: "#5C3DBB",
-        icon:  <img src='/images/icons/material-capabilities/generated-image1.svg' />,
-        description:
-            "Our cast iron capabilities are engineered for applications that demand durability, wear resistance and costeffective large-scale production. Grey iron is widely used for engine blocks, housings, and machine bases due to its machinability and thermal stability. Ductile iron offers higher strength and impact resistance for automotive, piping, and structural parts. White iron, Ni-Hard, and High Chrome iron grades are ideal for abrasive and high-wear environments such as mining, cement, power, and material handling industries.",
-        materials: [
-            {
-                name: "Grey Iron",
-                description: "Excellent machinability & vibration damping",
-            },
-            {
-                name: "Ductile Iron",
-                description: "High strength with good ductility",
-            },
-            {
-                name: "White Iron",
-                description: "Extremely hard, wear-resistant surface",
-            },
-            {
-                name: "Ni-Hard",
-                description: "Nickel alloyed, superior abrasion resistance",
-            },
-            {
-                name: "High Chrome Iron",
-                description: "Corrosion & wear resistant castings",
-            },
-        ],
-    },
-    {
-        name: "Steel",
-        count: 5,
-        color: "#215A87",
-        icon:  <img src='/images/icons/material-capabilities/generated-image2.svg' />,
-        description:
-            "We offer a broad range of steel casting solutions designed for strength and corrosion resistance. Carbon steel is preferred for heavy-duty structural and industrial components requiring high load-bearing capacity. Stainless steel provides superior corrosion resistance, making it ideal for food processing, marine, and chemical industries. Manganese steel is valued for exceptional wear resistance in crushers and rail components, while Duplex and Super Duplex steels deliver outstanding performance in offshore oil & gas, and aggressive chemical environments.",
-        materials: [
-            {
-                name: "Carbon Steel",
-                description: "Versatile, high strength structural castings",
-            },
-            {
-                name: "Stainless Steel",
-                description: "Corrosion resistant, food & medical grade",
-            },
-            {
-                name: "Manganese Steel",
-                description: "Impact-hardening for mining & crushing",
-            },
-            {
-                name: "Duplex",
-                description: "Dual-phase, superior corrosion resistance",
-            },
-            {
-                name: "Super Duplex",
-                description: "Extreme chloride & corrosion resistance",
-            },
-        ],
-    },
-    {
-        name: "Non-Ferrous Alloys",
-        count: 3,
-        color: "#2A8B61",
-        icon:  <img src='/images/icons/material-capabilities/generated-image3.svg' />,
-        description:
-            "Our non-ferrous alloy casting capabilities are optimized for lightweight performance, conductivity and premium surface finish. Aluminum alloys are widely used in automotive, aerospace, and electronics for their high strength-to-weight ratio and corrosion resistance. Zinc alloys are ideal for die-cast components requiring intricate details, tight tolerances, and decorative finishes. Copper alloys are chosen for excellent thermal and electrical conductivity, corrosion resistance and long-term reliability.",
-        materials: [
-            {
-                name: "Aluminum Alloys",
-                description: "Lightweight, high strength-to-weight ratio",
-            },
-            {
-                name: "Zinc Alloys",
-                description: "Die casting grade, excellent surface finish",
-            },
-            {
-                name: "Copper Alloys",
-                description: "High conductivity, marine-grade options",
-            },
-        ],
-    },
-];
 
-export default function MaterialCapabilities() {
+interface Material {
+    name: string;
+    count: number;
+    color: string;
+    icon: React.ReactNode;
+    description: string;
+    materials: {
+        name: string;
+        description: string;
+    }[];
+}
+
+interface MaterialCapabilitiesProps {
+    title: string;
+    materials: Material[];
+}
+export default function MaterialCapabilities({
+    title,
+    materials,
+}: MaterialCapabilitiesProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [activeCard, setActiveCard] = useState<number | null>(null);
@@ -122,7 +57,7 @@ export default function MaterialCapabilities() {
         >
             <div className="mx-auto max-w-7xl px-6">
                 <h2 className="text-center font-heading text-4xl font-semibold text-[#331C6F]">
-                    Material Capabilities for Diverse Industries
+                   {title}
                 </h2>
 
                 <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -152,11 +87,12 @@ export default function MaterialCapabilities() {
                                 <div className="flex gap-3">
                                     <div
                                         className="flex h-14 w-14 items-center justify-center rounded-2xl"
-                                        style={{
-                                            backgroundColor: `${item.color}15`,
-                                        }}
                                     >
-                                        {item.icon}
+                                        <img
+                                            src={item.icon}
+                                            alt={item.name}
+                                            className="h-14 w-14 object-contain"
+                                        />
                                     </div>
 
                                     <div>
