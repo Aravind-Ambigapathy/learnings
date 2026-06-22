@@ -7,17 +7,16 @@ import Alloys from "./icons/alloys";
 
 
 interface Material {
+  name: string;
+  count: number;
+  color: string;
+  icon: string;
+  description: string;
+  materials: {
     name: string;
-    count: number;
-    color: string;
-    icon: React.ReactNode;
-    description: string;
-    materials: {
-        name: string;
-        description: string;
-    }[];
+    description?: string;
+  }[];
 }
-
 interface MaterialCapabilitiesProps {
     title: string;
     materials: Material[];
