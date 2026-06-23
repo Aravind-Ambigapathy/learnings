@@ -16,7 +16,7 @@ import ValueAddedServices from '@/components/ValueAddedServices';
 function Forging() {
     return (
         <main className="">
-            <HeroSection image={"/images/forging-banner.png"} type="forging" />
+            <HeroSection image={"/images/forging-banner1.png"} type="forging" />
             <CastingWithRivexa  data={forgingFormData} />
             <CastSourcePromise data={forgingSourceData}/>
             <ProcessSection
