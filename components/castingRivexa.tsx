@@ -204,7 +204,7 @@ export default function CastingWithRivexa({
                     <div className="bg-white rounded-[24px] border border-[#E8E2F2] overflow-hidden shadow-sm">
                         <div className="px-6 py-4 border-b border-[#ECE7F5]">
                             <h3 className="text-2xl font-bold text-[#22095B]">
-                                Upload Your Engineering Drawing
+                                Upload Your Drawing
                             </h3>
 
                             <p className="text-sm text-[#8F8AA6] mt-2">
