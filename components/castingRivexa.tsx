@@ -190,7 +190,7 @@ export default function CastingWithRivexa({
                         Source From India
                     </div>
 
-                    <h2 className="mt-6 text-4xl md:text-5xl font-bold text-[#22095B]">
+                    <h2 className="mt-6 text-4xl md:text-5xl font-semibold text-[#22095B]">
                         Need a Smarter Way to Source?
                     </h2>
 
