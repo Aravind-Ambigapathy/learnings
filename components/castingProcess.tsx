@@ -22,11 +22,12 @@ interface CoreProcessProps {
     title: string;
     comparisonTitle: string;
     comparisonDescription: string;
+    comparisonFirstColumnTitle: string;
+    comparisonColumns: string[]; // add this
     processes: Process[];
     comparisonRows: ComparisonRow[];
   };
 }
-
 export default function CoreProcess({
   data,
 }: CoreProcessProps) {
@@ -53,11 +54,10 @@ export default function CoreProcess({
                 setActiveTab(index);
                 setShowFullDescription(false);
               }}
-              className={`rounded-full px-5 py-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${
-                activeTab === index
-                  ? "bg-[#331C6F] text-white"
-                  : "bg-[#E8E4F2] text-[#6B6B7A] hover:bg-[#DDD5EF]"
-              }`}
+              className={`rounded-full px-5 py-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${activeTab === index
+                ? "bg-[#331C6F] text-white"
+                : "bg-[#E8E4F2] text-[#6B6B7A] hover:bg-[#DDD5EF]"
+                }`}
             >
               {item.name}
             </button>
@@ -66,11 +66,10 @@ export default function CoreProcess({
 
         {/* Process Section */}
         <div
-          className={`my-6 grid gap-4 transition-all duration-500 ${
-            showFullDescription
-              ? "lg:grid-cols-[500px_1fr]"
-              : "lg:grid-cols-[320px_1fr]"
-          }`}
+          className={`my-6 grid gap-4 transition-all duration-500 ${showFullDescription
+            ? "lg:grid-cols-[500px_1fr]"
+            : "lg:grid-cols-[320px_1fr]"
+            }`}
         >
           {/* Left Card */}
           <div className="rounded-xl border border-[#D8D0E5] bg-white p-6">
@@ -102,9 +101,8 @@ export default function CoreProcess({
               </h4>
 
               <p
-                className={`mt-2 text-sm font-semibold leading-6 text-[#5D6472] ${
-                  showFullDescription ? "" : "line-clamp-2"
-                }`}
+                className={`mt-2 text-sm font-semibold leading-6 text-[#5D6472] ${showFullDescription ? "" : "line-clamp-2"
+                  }`}
               >
                 {process.description}
               </p>
@@ -154,15 +152,15 @@ export default function CoreProcess({
               <thead>
                 <tr className="bg-[#ECE5FB]">
                   <th className="px-6 py-4 text-left text-[#331C6F]">
-                    Feature
+                    {data.comparisonFirstColumnTitle}
                   </th>
 
-                  {data.processes.map((item) => (
+                  {data.comparisonColumns.map((column) => (
                     <th
-                      key={item.id}
+                      key={column}
                       className="px-6 py-4 text-left text-[#331C6F]"
                     >
-                      {item.name}
+                      {column}
                     </th>
                   ))}
                 </tr>
@@ -173,11 +171,10 @@ export default function CoreProcess({
                   (row, rowIndex) => (
                     <tr
                       key={row.feature}
-                      className={`border-t border-[#ECE5FB] ${
-                        rowIndex % 2 === 1
-                          ? "bg-[#FAF9FD]"
-                          : ""
-                      }`}
+                      className={`border-t border-[#ECE5FB] ${rowIndex % 2 === 1
+                        ? "bg-[#FAF9FD]"
+                        : ""
+                        }`}
                     >
                       <td className="px-6 py-4 font-medium">
                         {row.feature}

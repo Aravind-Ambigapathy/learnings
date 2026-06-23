@@ -16,6 +16,8 @@ export interface ProcessComparisonData {
   title: string;
   comparisonTitle: string;
   comparisonDescription: string;
+  comparisonFirstColumnTitle: string;
   processes: ProcessItem[];
+  comparisonColumns: string[];
   comparisonRows: ComparisonRow[];
 }

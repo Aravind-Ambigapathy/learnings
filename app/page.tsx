@@ -14,8 +14,7 @@ import SupplierCertifications from "@/components/supplierCertifications";
 import SurfacePreparation from "@/components/SurfacePreparation";
 import ValueAddedServices from "@/components/ValueAddedServices";
 import WhyRivexa from "@/components/WhyRivexa";
-import { castingCapabilities, castingData, castingFormData, castingIndustries, castingMaterials, castingServicesData, castingSourceData } from "@/data/castingData";
-import { castingSteps } from "@/data/castingProcess";
+import { castingCapabilities, castingData, castingFormData, castingIndustries, castingMaterials, castingServicesData, castingSourceData, castingSteps } from "@/data/castingData";
 
 export default function Home() {
 

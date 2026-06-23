@@ -35,13 +35,12 @@ export default function Capability({
             >
               <div className="flex gap-4 items-center">
                 <div
-                  className={`h-16 w-16 rounded-2xl flex items-center justify-center ${item.iconBg || ""
-                    }`}
+                  className={`h-16 w-16 rounded-2xl flex items-center justify-center `}
                 >
                   <img
                     src={item.icon}
                     alt={item.title}
-                    className="h-10 w-10 object-contain"
+                    className="h-14 w-14 object-contain"
                   />
                 </div>
 

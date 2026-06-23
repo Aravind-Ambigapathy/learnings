@@ -48,7 +48,12 @@ export const forgingData = {
         "Ring rolling is a specialized forging process used to produce seamless rolled rings by expanding a pre-forged metal ring between rotating rolls. This technique ensures uniform grain flow and superior mechanical properties. It is widely used for applications requiring high strength-to-weight ratio and large-diameter rings with consistent thickness and structure. Compared to traditional machining or casting, ring rolling offers material efficiency and enhanced performance, making it ideal for high-stress applications.",
     },
   ],
-
+  comparisonFirstColumnTitle: "Feature",
+  comparisonColumns: [
+    "Open Die",
+    "Closed Die",
+    "Ring Rolling",
+  ],
   comparisonRows: [
     {
       feature: "Volume",
@@ -348,6 +353,34 @@ export const forgingServicesData = {
 
   buttonText: "Send Enquiry",
 };
+
+export const forgingSteps = [
+  {
+    title: "Material selection",
+    description: "Choose the right metal based on strength, durability and application requirements.",
+    image: "/images/forging1.png",
+  },
+  {
+    title: "Heating",
+    description: "Heat the metal to a controlled temperature to make it malleable for shaping.",
+    image: "/images/forging2.png",
+  },
+  {
+    title: "Shaping",
+    description: "Shape the heated metal using open or closed die forging methods as per design needs.",
+    image: "/images/forging3.png",
+  },
+  {
+    title: "Finishing",
+    description: "Remove excess material and refine the part through machining and surface treatments",
+    image: "/images/forging4.png",
+  },
+  {
+    title: "Quality Control",
+    description: "Test the final component to ensure precision, strength and compliance.",
+    image: "/images/forging5.png",
+  },
+];
 
 export const forgingFormData = {
   title:

@@ -2,10 +2,9 @@ import CastingWithRivexa from '@/components/castingRivexa'
 import CastSourcePromise from '@/components/castSource'
 import HeroSection from '@/components/main-banner'
 import React from 'react'
-import { forgingSteps } from "@/data/forgingSteps";
 import ProcessSection from '@/components/castingStep';
 import CoreProcess from '@/components/castingProcess';
-import { forgingCapabilities, forgingData, forgingFormData, forgingIndustries, forgingMaterials, forgingServicesData, forgingSourceData } from '@/data/forgingData';
+import { forgingCapabilities, forgingData, forgingFormData, forgingIndustries, forgingMaterials, forgingServicesData, forgingSourceData, forgingSteps } from '@/data/forgingData';
 import IndustryGrid from '@/components/IndustryGrid';
 import MaterialCapabilities from '@/components/materialCapability';
 import Capability from '@/components/capability';

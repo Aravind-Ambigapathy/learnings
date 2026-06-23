@@ -33,13 +33,12 @@ export default function HeroSection({
           <div className="flex flex-col items-center text-center">
             <h1 className="font-heading text-white text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
               rivexa {serviceName} Solutions – Your Global Sourcing
-              <br />
               Platform
             </h1>
 
-            <p className="mt-5 text-[#E8C21D] text-xl md:text-3xl lg:text-4xl font-semibold leading-snug">
+            <p className="mt-5 text-[#E8C21D] text-xl md:text-3xl font-semibold leading-snug">
               One drawing. One platform.
-              <br />
+              
               Multiple {type} processes.
             </p>
 

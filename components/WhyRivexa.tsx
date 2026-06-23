@@ -236,7 +236,7 @@ export default function WhyRivexa() {
                 >
                     <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                         <div>
-                            <h3 className="font-heading text-2xl text-[#330086]">
+                            <h3 className="font-heading font-semibold text-2xl text-[#330086]">
                                 Make the smarter sourcing choice.
                             </h3>
 
